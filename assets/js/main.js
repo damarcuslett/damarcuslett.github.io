@@ -37,6 +37,7 @@
     initCounters();
     initMagneticButtons();
     initAnalytics();
+    initFooterYear();
   }
 
   /* ============================================
@@ -139,26 +140,35 @@
 
     /* --- Hamburger Toggle --- */
     if (hamburger && mobileMenu) {
+      function closeMobileMenu() {
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        mobileMenu.classList.remove('open');
+        hamburger.focus();
+      }
+
+      function openMobileMenu() {
+        hamburger.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        mobileMenu.classList.add('open');
+        // Move focus to first focusable item in the menu
+        var firstLink = mobileMenu.querySelector('a, button, [tabindex="0"]');
+        if (firstLink) firstLink.focus();
+      }
+
       hamburger.addEventListener('click', function () {
         var isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-        var newState = !isExpanded;
-
-        hamburger.setAttribute('aria-expanded', String(newState));
-        mobileMenu.setAttribute('aria-hidden', String(!newState));
-
-        if (newState) {
-          mobileMenu.classList.add('open');
+        if (isExpanded) {
+          closeMobileMenu();
         } else {
-          mobileMenu.classList.remove('open');
+          openMobileMenu();
         }
       });
 
       // Close mobile menu on link click
       mobileMenu.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () {
-          hamburger.setAttribute('aria-expanded', 'false');
-          mobileMenu.setAttribute('aria-hidden', 'true');
-          mobileMenu.classList.remove('open');
+          closeMobileMenu();
         });
       });
 
@@ -170,6 +180,37 @@
           mobileMenu.classList.remove('open');
         }
       }, { passive: true });
+
+      // ESC key closes the menu (WCAG 2.1 SC 1.4.13)
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') {
+          closeMobileMenu();
+        }
+      });
+
+      // Focus trap — keep Tab/Shift+Tab inside the open menu
+      mobileMenu.addEventListener('keydown', function (e) {
+        if (e.key !== 'Tab') return;
+        var focusable = Array.from(
+          mobileMenu.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])')
+        ).filter(function (el) { return !el.disabled && el.offsetParent !== null; });
+        if (!focusable.length) return;
+
+        var first = focusable[0];
+        var last  = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
     }
 
     /* --- Smooth Scroll for Anchor Links --- */
@@ -843,6 +884,14 @@
         }
       });
     }, { passive: true });
+  }
+
+  /* ============================================
+     14. Footer Year
+     ============================================ */
+  function initFooterYear() {
+    var el = document.getElementById('footer-year');
+    if (el) el.textContent = new Date().getFullYear();
   }
 
 })();

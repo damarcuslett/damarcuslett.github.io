@@ -180,6 +180,16 @@ if (!window.DLAuth?.validateSession()) {
     };
   }
 
+  // ── HTML ESCAPE HELPER ────────────────────────────────────────
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   // ── RENDER STATS ──────────────────────────────────────────────
   function renderStats(data) {
     setEl('stat-total-views',    formatNum(data.totalViews));
@@ -376,15 +386,15 @@ if (!window.DLAuth?.validateSession()) {
     tbody.innerHTML = data.topPages.map(page => `
       <tr>
         <td>
-          <div style="font-size:0.8rem;color:var(--color-text);font-weight:500;">${page.title}</div>
-          <div style="font-size:0.7rem;color:var(--color-text-muted);font-family:monospace;">${page.path}</div>
+          <div style="font-size:0.8rem;color:var(--color-text);font-weight:500;">${escapeHtml(page.title)}</div>
+          <div style="font-size:0.7rem;color:var(--color-text-muted);font-family:monospace;">${escapeHtml(page.path)}</div>
         </td>
         <td>
           <div class="page-bar-wrap">
             <div class="page-bar">
               <div class="page-bar-fill" style="width:${Math.round((page.views / maxViews) * 100)}%"></div>
             </div>
-            <span class="page-views">${formatNum(page.views)}</span>
+            <span class="page-views">${escapeHtml(formatNum(page.views))}</span>
           </div>
         </td>
       </tr>
@@ -397,10 +407,10 @@ if (!window.DLAuth?.validateSession()) {
     if (!log) return;
     log.innerHTML = data.events.map(ev => `
       <div class="event-item">
-        <div class="event-dot ${ev.type}"></div>
+        <div class="event-dot ${escapeHtml(ev.type)}"></div>
         <div class="event-body">
-          <div class="event-name">${ev.name}</div>
-          <div class="event-time">${ev.time}</div>
+          <div class="event-name">${escapeHtml(ev.name)}</div>
+          <div class="event-time">${escapeHtml(ev.time)}</div>
         </div>
       </div>
     `).join('');

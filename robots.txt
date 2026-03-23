@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /dl-command-center/
+
+Sitemap: https://damarcuslett.github.io/sitemap.xml

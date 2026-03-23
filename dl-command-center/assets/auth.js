@@ -14,8 +14,8 @@
  *   return [...new Uint8Array(b)]
  *     .map(x => x.toString(16).padStart(2,'0')).join('');
  * }
- * console.log(await h('DLett_Admin_2025'));
- * console.log(await h('Xbox@Microsoft#DL2025!'));
+ * console.log(await h('YOUR_USERNAME_HERE'));
+ * console.log(await h('YOUR_PASSWORD_HERE'));
  * ─────────────────────────────────────────────────────────────
  */
 
