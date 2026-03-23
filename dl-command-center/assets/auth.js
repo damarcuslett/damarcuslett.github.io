@@ -373,7 +373,13 @@
 
   // ── INIT ──────────────────────────────────────────────────────
   function init() {
-    // If already authenticated, skip to dashboard
+    // Only run login-page logic when we are actually on index.html.
+    // auth.js is also loaded by dashboard.html (for DLAuth API) so
+    // we must NOT redirect or attach form handlers from that context.
+    const onDashboard = window.location.pathname.endsWith('dashboard.html');
+    if (onDashboard) return; // dashboard.js handles its own session gate
+
+    // If already authenticated, skip straight to dashboard
     if (validateSession()) {
       window.location.replace('dashboard.html');
       return;
@@ -385,13 +391,13 @@
     initPasswordToggle();
     initParticles();
 
-    // Check for expired session redirect
+    // Show message when redirected back due to session expiry
     const params = new URLSearchParams(window.location.search);
     if (params.get('reason') === 'expired') {
       showError('Your session has expired. Please log in again.');
     }
 
-    // Check existing lockout on load
+    // Restore lockout countdown if already locked out
     const { locked } = isLockedOut();
     if (locked) startLockoutCountdown();
   }
