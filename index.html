@@ -26,10 +26,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
-  <link rel="preload" href="assets/css/styles.css?v=3" as="style" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+  <link rel="preload" href="assets/css/styles.css?v=4" as="style" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
   <script defer data-domain="damarcuslett.github.io" src="https://plausible.io/js/script.js"></script>
-  <script defer src="assets/js/main.js?v=3"></script>
+  <script defer src="assets/js/main.js?v=4"></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -125,28 +125,66 @@
       <div class="marquee-container">
         <div class="marquee-row marquee-row--left" aria-hidden="true">
           <div class="marquee-track">
-            <div class="marquee-item"><img src="assets/logos/microsoft.svg" alt="Microsoft" class="company-logo marquee-logo" loading="lazy" decoding="async" width="120" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span></div>
-            <div class="marquee-item"><img src="assets/logos/xbox.svg" alt="Xbox" class="company-logo marquee-logo" loading="lazy" decoding="async" width="80" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Xbox</span></div>
-            <div class="marquee-item"><img src="assets/logos/intel.svg" alt="Intel" class="company-logo marquee-logo" loading="lazy" decoding="async" width="80" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Intel</span></div>
-            <div class="marquee-item"><img src="assets/logos/dell.png" alt="Dell Technologies" class="company-logo marquee-logo" loading="lazy" decoding="async" width="100" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Dell</span></div>
-            <div class="marquee-item"><img src="assets/logos/boeing.svg" alt="Boeing" class="company-logo marquee-logo" loading="lazy" decoding="async" width="110" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Boeing</span></div>
-            <div class="marquee-item"><img src="assets/logos/microsoft.svg" alt="Microsoft" class="company-logo marquee-logo" loading="lazy" decoding="async" width="120" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span></div>
-            <div class="marquee-item"><img src="assets/logos/xbox.svg" alt="Xbox" class="company-logo marquee-logo" loading="lazy" decoding="async" width="80" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Xbox</span></div>
-            <div class="marquee-item"><img src="assets/logos/intel.svg" alt="Intel" class="company-logo marquee-logo" loading="lazy" decoding="async" width="80" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Intel</span></div>
-            <div class="marquee-item"><img src="assets/logos/dell.png" alt="Dell Technologies" class="company-logo marquee-logo" loading="lazy" decoding="async" width="100" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Dell</span></div>
-            <div class="marquee-item"><img src="assets/logos/boeing.svg" alt="Boeing" class="company-logo marquee-logo" loading="lazy" decoding="async" width="110" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Boeing</span></div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/microsoft.svg" alt="Microsoft" class="co-logo" loading="lazy" decoding="async" width="22" height="20" onerror="this.style.display='none'"><span class="co-name">Microsoft</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/xbox.svg" alt="Xbox" class="co-logo" loading="lazy" decoding="async" width="20" height="20" onerror="this.style.display='none'"><span class="co-name">Xbox</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/intel.svg" alt="Intel" class="co-logo" loading="lazy" decoding="async" width="40" height="20" onerror="this.style.display='none'"><span class="co-name">Intel</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/dell.png" alt="Dell Technologies" class="co-logo" loading="lazy" decoding="async" width="60" height="20" onerror="this.style.display='none'"><span class="co-name">Dell Technologies</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/boeing.svg" alt="Boeing" class="co-logo" loading="lazy" decoding="async" width="70" height="20" onerror="this.style.display='none'"><span class="co-name">Boeing</span></div>
+            </div>
+            <!-- Duplicate set for seamless loop -->
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/microsoft.svg" alt="Microsoft" class="co-logo" loading="lazy" decoding="async" width="22" height="20" onerror="this.style.display='none'"><span class="co-name">Microsoft</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/xbox.svg" alt="Xbox" class="co-logo" loading="lazy" decoding="async" width="20" height="20" onerror="this.style.display='none'"><span class="co-name">Xbox</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/intel.svg" alt="Intel" class="co-logo" loading="lazy" decoding="async" width="40" height="20" onerror="this.style.display='none'"><span class="co-name">Intel</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/dell.png" alt="Dell Technologies" class="co-logo" loading="lazy" decoding="async" width="60" height="20" onerror="this.style.display='none'"><span class="co-name">Dell Technologies</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/boeing.svg" alt="Boeing" class="co-logo" loading="lazy" decoding="async" width="70" height="20" onerror="this.style.display='none'"><span class="co-name">Boeing</span></div>
+            </div>
           </div>
         </div>
         <div class="marquee-row marquee-row--right" aria-hidden="true">
           <div class="marquee-track">
-            <div class="marquee-item"><img src="assets/logos/eaton.svg" alt="Eaton" class="company-logo marquee-logo" loading="lazy" decoding="async" width="90" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Eaton</span></div>
-            <div class="marquee-item"><img src="assets/logos/ge.svg" alt="General Electric" class="company-logo marquee-logo" loading="lazy" decoding="async" width="60" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">GE</span></div>
-            <div class="marquee-item"><img src="assets/logos/jj.svg" alt="Johnson and Johnson" class="company-logo marquee-logo" loading="lazy" decoding="async" width="120" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">J&amp;J</span></div>
-            <div class="marquee-item"><img src="assets/logos/emerson.svg" alt="Emerson" class="company-logo marquee-logo" loading="lazy" decoding="async" width="110" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Emerson</span></div>
-            <div class="marquee-item"><img src="assets/logos/eaton.svg" alt="Eaton" class="company-logo marquee-logo" loading="lazy" decoding="async" width="90" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Eaton</span></div>
-            <div class="marquee-item"><img src="assets/logos/ge.svg" alt="General Electric" class="company-logo marquee-logo" loading="lazy" decoding="async" width="60" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">GE</span></div>
-            <div class="marquee-item"><img src="assets/logos/jj.svg" alt="Johnson and Johnson" class="company-logo marquee-logo" loading="lazy" decoding="async" width="120" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">J&amp;J</span></div>
-            <div class="marquee-item"><img src="assets/logos/emerson.svg" alt="Emerson" class="company-logo marquee-logo" loading="lazy" decoding="async" width="110" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Emerson</span></div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/eaton.svg" alt="Eaton" class="co-logo" loading="lazy" decoding="async" width="50" height="20" onerror="this.style.display='none'"><span class="co-name">Eaton</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/ge.svg" alt="General Electric" class="co-logo" loading="lazy" decoding="async" width="20" height="20" onerror="this.style.display='none'"><span class="co-name">General Electric</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/jj.svg" alt="Johnson &amp; Johnson" class="co-logo" loading="lazy" decoding="async" width="80" height="20" onerror="this.style.display='none'"><span class="co-name">Johnson &amp; Johnson</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/emerson.svg" alt="Emerson" class="co-logo" loading="lazy" decoding="async" width="70" height="20" onerror="this.style.display='none'"><span class="co-name">Emerson</span></div>
+            </div>
+            <!-- Duplicate set for seamless loop -->
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/eaton.svg" alt="Eaton" class="co-logo" loading="lazy" decoding="async" width="50" height="20" onerror="this.style.display='none'"><span class="co-name">Eaton</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/ge.svg" alt="General Electric" class="co-logo" loading="lazy" decoding="async" width="20" height="20" onerror="this.style.display='none'"><span class="co-name">General Electric</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/jj.svg" alt="Johnson &amp; Johnson" class="co-logo" loading="lazy" decoding="async" width="80" height="20" onerror="this.style.display='none'"><span class="co-name">Johnson &amp; Johnson</span></div>
+            </div>
+            <div class="marquee-item">
+              <div class="co-chip"><img src="assets/logos/emerson.svg" alt="Emerson" class="co-logo" loading="lazy" decoding="async" width="70" height="20" onerror="this.style.display='none'"><span class="co-name">Emerson</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -178,15 +216,15 @@
               </div>
             </div>
             <div class="mini-logos" aria-label="Companies Damarcus has worked with">
-              <img src="assets/logos/microsoft.svg" alt="Microsoft" class="mini-logo" loading="lazy" decoding="async" width="80" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span>
-              <img src="assets/logos/xbox.svg" alt="Xbox" class="mini-logo" loading="lazy" decoding="async" width="50" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Xbox</span>
-              <img src="assets/logos/intel.svg" alt="Intel" class="mini-logo" loading="lazy" decoding="async" width="50" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Intel</span>
-              <img src="assets/logos/dell.png" alt="Dell Technologies" class="mini-logo" loading="lazy" decoding="async" width="60" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Dell</span>
-              <img src="assets/logos/boeing.svg" alt="Boeing" class="mini-logo" loading="lazy" decoding="async" width="70" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Boeing</span>
-              <img src="assets/logos/ge.svg" alt="General Electric" class="mini-logo" loading="lazy" decoding="async" width="40" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">GE</span>
-              <img src="assets/logos/jj.svg" alt="Johnson and Johnson" class="mini-logo" loading="lazy" decoding="async" width="80" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">J&amp;J</span>
-              <img src="assets/logos/eaton.svg" alt="Eaton" class="mini-logo" loading="lazy" decoding="async" width="60" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Eaton</span>
-              <img src="assets/logos/emerson.svg" alt="Emerson" class="mini-logo" loading="lazy" decoding="async" width="70" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Emerson</span>
+              <div class="co-chip"><img src="assets/logos/microsoft.svg" alt="Microsoft" class="co-logo" loading="lazy" decoding="async" width="22" height="16" onerror="this.style.display='none'"><span class="co-name">Microsoft</span></div>
+              <div class="co-chip"><img src="assets/logos/xbox.svg" alt="Xbox" class="co-logo" loading="lazy" decoding="async" width="16" height="16" onerror="this.style.display='none'"><span class="co-name">Xbox</span></div>
+              <div class="co-chip"><img src="assets/logos/intel.svg" alt="Intel" class="co-logo" loading="lazy" decoding="async" width="32" height="16" onerror="this.style.display='none'"><span class="co-name">Intel</span></div>
+              <div class="co-chip"><img src="assets/logos/dell.png" alt="Dell Technologies" class="co-logo" loading="lazy" decoding="async" width="50" height="16" onerror="this.style.display='none'"><span class="co-name">Dell Technologies</span></div>
+              <div class="co-chip"><img src="assets/logos/boeing.svg" alt="Boeing" class="co-logo" loading="lazy" decoding="async" width="55" height="16" onerror="this.style.display='none'"><span class="co-name">Boeing</span></div>
+              <div class="co-chip"><img src="assets/logos/ge.svg" alt="General Electric" class="co-logo" loading="lazy" decoding="async" width="16" height="16" onerror="this.style.display='none'"><span class="co-name">General Electric</span></div>
+              <div class="co-chip"><img src="assets/logos/jj.svg" alt="Johnson &amp; Johnson" class="co-logo" loading="lazy" decoding="async" width="70" height="16" onerror="this.style.display='none'"><span class="co-name">Johnson &amp; Johnson</span></div>
+              <div class="co-chip"><img src="assets/logos/eaton.svg" alt="Eaton" class="co-logo" loading="lazy" decoding="async" width="38" height="16" onerror="this.style.display='none'"><span class="co-name">Eaton</span></div>
+              <div class="co-chip"><img src="assets/logos/emerson.svg" alt="Emerson" class="co-logo" loading="lazy" decoding="async" width="55" height="16" onerror="this.style.display='none'"><span class="co-name">Emerson</span></div>
             </div>
           </div>
           <div class="about-profile">
@@ -205,7 +243,10 @@
               </div>
               <p class="profile-name">Damarcus Lett</p>
               <div class="profile-badge">
-                <img src="assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" decoding="async" width="80" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span>
+                <div class="co-chip">
+                  <img src="assets/logos/microsoft.svg" alt="Microsoft" class="co-logo" loading="lazy" decoding="async" width="22" height="20" onerror="this.style.display='none'">
+                  <span class="co-name">Microsoft</span>
+                </div>
                 <span class="badge-text">Technical Program Manager</span>
               </div>
               <div class="profile-glow" aria-hidden="true"></div>
@@ -226,8 +267,8 @@
           <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Xbox Technical Program Manager at Microsoft">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-logos">
-              <img src="assets/logos/microsoft.svg" alt="Microsoft" class="company-logo card-logo" loading="lazy" decoding="async" width="100" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span>
-              <img src="assets/logos/xbox.svg" alt="Xbox" class="company-logo card-logo" loading="lazy" decoding="async" width="60" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Xbox</span>
+              <div class="co-chip"><img src="assets/logos/microsoft.svg" alt="Microsoft" class="co-logo card-logo" loading="lazy" decoding="async" width="22" height="20" onerror="this.style.display='none'"><span class="co-name">Microsoft</span></div>
+              <div class="co-chip"><img src="assets/logos/xbox.svg" alt="Xbox" class="co-logo card-logo" loading="lazy" decoding="async" width="20" height="20" onerror="this.style.display='none'"><span class="co-name">Xbox</span></div>
             </div>
             <span class="timeline-badge">Current</span>
             <h3 class="timeline-role">Xbox Technical Program Manager</h3>
@@ -238,7 +279,7 @@
           <article class="timeline-card glass-card timeline-right reveal-right" role="listitem" aria-label="Program Manager II at Microsoft">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-logos">
-              <img src="assets/logos/microsoft.svg" alt="Microsoft" class="company-logo card-logo" loading="lazy" decoding="async" width="100" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span>
+              <div class="co-chip"><img src="assets/logos/microsoft.svg" alt="Microsoft" class="co-logo card-logo" loading="lazy" decoding="async" width="22" height="20" onerror="this.style.display='none'"><span class="co-name">Microsoft</span></div>
             </div>
             <h3 class="timeline-role">Program Manager II, Engineering</h3>
             <p class="timeline-company">Microsoft</p>
@@ -248,7 +289,7 @@
           <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Technical Data Analytics at Intel">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-logos">
-              <img src="assets/logos/intel.svg" alt="Intel" class="company-logo card-logo" loading="lazy" decoding="async" width="80" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Intel</span>
+              <div class="co-chip"><img src="assets/logos/intel.svg" alt="Intel" class="co-logo card-logo" loading="lazy" decoding="async" width="40" height="20" onerror="this.style.display='none'"><span class="co-name">Intel</span></div>
             </div>
             <h3 class="timeline-role">Technical Data Analytics</h3>
             <p class="timeline-company">Intel</p>
@@ -258,7 +299,7 @@
           <article class="timeline-card glass-card timeline-right reveal-right" role="listitem" aria-label="Technical Project Management at Dell Technologies">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-logos">
-              <img src="assets/logos/dell.png" alt="Dell Technologies" class="company-logo card-logo" loading="lazy" decoding="async" width="90" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Dell</span>
+              <div class="co-chip"><img src="assets/logos/dell.png" alt="Dell Technologies" class="co-logo card-logo" loading="lazy" decoding="async" width="60" height="20" onerror="this.style.display='none'"><span class="co-name">Dell Technologies</span></div>
             </div>
             <h3 class="timeline-role">Technical Project Management</h3>
             <p class="timeline-company">Dell Technologies</p>
@@ -268,7 +309,7 @@
           <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Technical Project Management at Boeing">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-logos">
-              <img src="assets/logos/boeing.svg" alt="Boeing" class="company-logo card-logo" loading="lazy" decoding="async" width="100" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Boeing</span>
+              <div class="co-chip"><img src="assets/logos/boeing.svg" alt="Boeing" class="co-logo card-logo" loading="lazy" decoding="async" width="70" height="20" onerror="this.style.display='none'"><span class="co-name">Boeing</span></div>
             </div>
             <h3 class="timeline-role">Technical Project Management</h3>
             <p class="timeline-company">Boeing</p>
@@ -278,7 +319,7 @@
           <article class="timeline-card glass-card timeline-right reveal-right" role="listitem" aria-label="Enterprise Data Management at Eaton">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-logos">
-              <img src="assets/logos/eaton.svg" alt="Eaton" class="company-logo card-logo" loading="lazy" decoding="async" width="80" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Eaton</span>
+              <div class="co-chip"><img src="assets/logos/eaton.svg" alt="Eaton" class="co-logo card-logo" loading="lazy" decoding="async" width="50" height="20" onerror="this.style.display='none'"><span class="co-name">Eaton</span></div>
             </div>
             <h3 class="timeline-role">Enterprise Data Management</h3>
             <p class="timeline-company">Eaton</p>
@@ -288,7 +329,7 @@
           <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Systems Engineering at General Electric">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-logos">
-              <img src="assets/logos/ge.svg" alt="General Electric" class="company-logo card-logo" loading="lazy" decoding="async" width="60" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">GE</span>
+              <div class="co-chip"><img src="assets/logos/ge.svg" alt="General Electric" class="co-logo card-logo" loading="lazy" decoding="async" width="20" height="20" onerror="this.style.display='none'"><span class="co-name">General Electric</span></div>
             </div>
             <h3 class="timeline-role">Systems Engineering</h3>
             <p class="timeline-company">General Electric</p>
@@ -298,7 +339,7 @@
           <article class="timeline-card glass-card timeline-right reveal-right" role="listitem" aria-label="Database Project Management at Johnson and Johnson">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-logos">
-              <img src="assets/logos/jj.svg" alt="Johnson and Johnson" class="company-logo card-logo" loading="lazy" decoding="async" width="110" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">J&amp;J</span>
+              <div class="co-chip"><img src="assets/logos/jj.svg" alt="Johnson &amp; Johnson" class="co-logo card-logo" loading="lazy" decoding="async" width="80" height="20" onerror="this.style.display='none'"><span class="co-name">Johnson &amp; Johnson</span></div>
             </div>
             <h3 class="timeline-role">Database Project Management</h3>
             <p class="timeline-company">Johnson &amp; Johnson</p>
@@ -308,7 +349,7 @@
           <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Electrical Engineer at Emerson">
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-logos">
-              <img src="assets/logos/emerson.svg" alt="Emerson" class="company-logo card-logo" loading="lazy" decoding="async" width="100" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Emerson</span>
+              <div class="co-chip"><img src="assets/logos/emerson.svg" alt="Emerson" class="co-logo card-logo" loading="lazy" decoding="async" width="70" height="20" onerror="this.style.display='none'"><span class="co-name">Emerson</span></div>
             </div>
             <h3 class="timeline-role">Electrical Engineer</h3>
             <p class="timeline-company">Emerson</p>
