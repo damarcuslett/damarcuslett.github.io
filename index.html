@@ -1,1986 +1,508 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-theme">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Damarcus Lett | Tech Leader &amp; Engineer</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Damarcus Lett — Technical Program Manager at Microsoft (Xbox), Business Information Systems graduate, and Tech Thought Leader. 10+ years across 9 iconic companies." />
-  <meta name="keywords" content="Damarcus Lett, Technical Program Manager, Microsoft, Xbox, Engineer, TPM, Tech Influencer, Seattle" />
+  <title>Damarcus Lett | Technical Program Manager &amp; Tech Influencer</title>
+  <meta name="description" content="Damarcus Lett is a Technical Program Manager at Microsoft Xbox, systems engineer, and emerging tech influencer with experience at GE, Boeing, Intel, Dell, and more." />
+  <meta name="keywords" content="Damarcus Lett, Technical Program Manager, Microsoft, Xbox, Engineer, Tech Influencer" />
   <meta name="author" content="Damarcus Lett" />
   <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Damarcus Lett | Tech Leader & Engineer" />
-  <meta property="og:description" content="Technical Program Manager at Microsoft Xbox. Engineer. Tech Thought Leader. 9 companies. Millions of users." />
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="Damarcus Lett | Tech Leader &amp; Engineer" />
+  <meta property="og:description" content="TPM at Microsoft Xbox. Engineer. Emerging tech voice. 9 iconic companies." />
   <meta property="og:url" content="https://damarcuslett.github.io" />
-
-  <!-- Fonts -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Damarcus Lett | Tech Leader &amp; Engineer" />
+  <meta name="twitter:description" content="TPM at Microsoft Xbox. Engineer. Tech Influencer." />
+  <link rel="canonical" href="https://damarcuslett.github.io" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <style>
-  /* ================================================================
-     DESIGN TOKENS
-  ================================================================ */
-  :root {
-    --blue:        #2563EB;
-    --blue-d:      #1D4ED8;
-    --blue-dd:     #1E40AF;
-    --blue-glow:   #60A5FA;
-    --blue-pale:   #DBEAFE;
-    --gold:        #F59E0B;
-    --black:       #0A0A0F;
-    --near-black:  #0D1117;
-    --card:        #111827;
-    --card-2:      #1A2235;
-    --border:      rgba(255,255,255,0.07);
-    --border-blue: rgba(37,99,235,0.3);
-    --glass:       rgba(255,255,255,0.035);
-    --glass-h:     rgba(255,255,255,0.065);
-    --text:        #F3F4F6;
-    --text-m:      #9CA3AF;
-    --text-d:      #6B7280;
-    --white:       #FFFFFF;
-    --nav-h:       72px;
-    --r:           16px;
-    --r-sm:        10px;
-    --ease:        cubic-bezier(0.4,0,0.2,1);
-    --spring:      cubic-bezier(0.34,1.56,0.64,1);
-  }
-
-  /* ================================================================
-     RESET
-  ================================================================ */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; font-size: 16px; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--black);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
-    cursor: none;
-  }
-  h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height: 1.15; }
-  a { color: inherit; text-decoration: none; }
-  img { display: block; }
-  ul { list-style: none; }
-  section { scroll-margin-top: var(--nav-h); }
-
-  /* ================================================================
-     CUSTOM CURSOR
-  ================================================================ */
-  #cursor-dot {
-    position: fixed;
-    width: 8px; height: 8px;
-    background: var(--blue-glow);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 99999;
-    transform: translate(-50%,-50%);
-    transition: transform 0.05s, opacity 0.3s;
-    mix-blend-mode: screen;
-  }
-  #cursor-ring {
-    position: fixed;
-    width: 36px; height: 36px;
-    border: 1.5px solid rgba(96,165,250,0.55);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 99998;
-    transform: translate(-50%,-50%);
-    transition: width 0.25s var(--ease), height 0.25s var(--ease), border-color 0.25s, background 0.25s;
-  }
-  body.cursor-hover #cursor-ring {
-    width: 60px; height: 60px;
-    border-color: rgba(96,165,250,0.25);
-    background: rgba(37,99,235,0.06);
-  }
-  @media (hover: none) { #cursor-dot, #cursor-ring { display: none; } body { cursor: auto; } }
-
-  /* ================================================================
-     SCROLL PROGRESS BAR
-  ================================================================ */
-  #progress-bar {
-    position: fixed;
-    top: 0; left: 0;
-    height: 3px;
-    width: 0%;
-    background: linear-gradient(90deg, var(--blue), var(--blue-glow));
-    z-index: 9999;
-    transition: width 0.05s linear;
-    box-shadow: 0 0 12px rgba(96,165,250,0.6);
-  }
-
-  /* ================================================================
-     SCROLL REVEAL
-  ================================================================ */
-  .reveal {
-    opacity: 0;
-    transform: translateY(36px);
-    transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
-  }
-  .reveal.from-left  { transform: translateX(-48px) translateY(0); }
-  .reveal.from-right { transform: translateX(48px)  translateY(0); }
-  .reveal.scale-in   { transform: scale(0.94) translateY(16px); }
-  .reveal.visible    { opacity: 1; transform: translate(0,0) scale(1); }
-
-  /* ================================================================
-     LAYOUT HELPERS
-  ================================================================ */
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
-
-  .section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--blue-glow);
-    background: rgba(37,99,235,0.1);
-    border: 1px solid rgba(37,99,235,0.25);
-    border-radius: 100px;
-    padding: 6px 16px;
-    margin-bottom: 22px;
-  }
-  .section-eyebrow::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--blue-glow);
-    border-radius: 50%;
-    animation: pulse-dot 2s ease infinite;
-  }
-  @keyframes pulse-dot {
-    0%,100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.7); }
-  }
-
-  .section-title {
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 18px;
-    background: linear-gradient(135deg, #fff 20%, var(--blue-glow) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .section-sub {
-    font-size: 18px;
-    color: var(--text-m);
-    line-height: 1.75;
-    max-width: 580px;
-    margin-bottom: 72px;
-  }
-
-  /* GLASS CARD */
-  .glass {
-    background: var(--glass);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--border);
-    border-radius: var(--r);
-  }
-  .glass-hover {
-    transition: transform 0.35s var(--spring), box-shadow 0.35s var(--ease), border-color 0.35s, background 0.35s;
-  }
-  .glass-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px -12px rgba(37,99,235,0.3), 0 0 0 1px rgba(37,99,235,0.2);
-    border-color: rgba(37,99,235,0.3);
-    background: var(--glass-h);
-  }
-
-  /* BUTTONS */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    padding: 14px 28px;
-    border-radius: 100px;
-    border: none;
-    cursor: none;
-    transition: transform 0.25s var(--spring), box-shadow 0.25s var(--ease), background 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .btn::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0);
-    transition: background 0.25s;
-  }
-  .btn:hover::after { background: rgba(255,255,255,0.07); }
-  .btn:hover { transform: translateY(-2px) scale(1.02); }
-  .btn:active { transform: translateY(0) scale(0.98); }
-
-  .btn-primary {
-    background: var(--blue);
-    color: var(--white);
-    box-shadow: 0 0 28px rgba(37,99,235,0.45), inset 0 1px 0 rgba(255,255,255,0.15);
-  }
-  .btn-primary:hover { box-shadow: 0 0 48px rgba(37,99,235,0.65); }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-  .btn-ghost:hover { border-color: rgba(96,165,250,0.4); background: rgba(37,99,235,0.08); }
-
-  .btn-linkedin {
-    background: #0A66C2;
-    color: var(--white);
-    box-shadow: 0 0 28px rgba(10,102,194,0.45);
-  }
-  .btn-linkedin:hover { box-shadow: 0 0 48px rgba(10,102,194,0.65); }
-
-  /* FORM */
-  .field {
-    width: 100%;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border);
-    border-radius: var(--r-sm);
-    padding: 14px 18px;
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.25s, box-shadow 0.25s;
-  }
-  .field::placeholder { color: var(--text-d); }
-  .field:focus {
-    border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
-  }
-  .field-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    cursor: none;
-  }
-  .field-select option { background: var(--card); }
-  .field-textarea { resize: vertical; min-height: 130px; }
-
-  /* SUCCESS */
-  .success-msg {
-    display: none;
-    align-items: center;
-    gap: 12px;
-    justify-content: center;
-    background: rgba(37,99,235,0.1);
-    border: 1px solid rgba(37,99,235,0.28);
-    border-radius: var(--r-sm);
-    padding: 18px 24px;
-    color: var(--blue-glow);
-    font-weight: 600;
-    font-size: 16px;
-    animation: pop-in 0.4s var(--spring) forwards;
-  }
-  @keyframes pop-in {
-    from { transform: scale(0.9); opacity: 0; }
-    to   { transform: scale(1);   opacity: 1; }
-  }
-
-  /* COMPANY LOGOS */
-  .logo-wrap { display: inline-flex; align-items: center; }
-  .logo-wrap img {
-    height: 28px; width: auto; object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.65;
-    transition: filter 0.35s var(--ease), opacity 0.35s;
-  }
-  .logo-wrap .logo-fb { display: none; color: var(--blue-glow); font-weight: 700; font-size: 12px; }
-
-  /* ================================================================
-     NAVIGATION
-  ================================================================ */
-  #nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    height: var(--nav-h);
-    display: flex;
-    align-items: center;
-    transition: background 0.4s var(--ease), backdrop-filter 0.4s, box-shadow 0.4s;
-  }
-  #nav.scrolled {
-    background: rgba(10,10,15,0.82);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    box-shadow: 0 1px 0 var(--border);
-  }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-
-  .nav-logo {
-    display: flex; align-items: center; gap: 12px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700; font-size: 17px;
-    letter-spacing: -0.02em;
-    cursor: none;
-  }
-  .nav-badge {
-    width: 40px; height: 40px;
-    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-glow) 100%);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px; font-weight: 800;
-    box-shadow: 0 0 20px rgba(37,99,235,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
-    flex-shrink: 0;
-    transition: transform 0.3s var(--spring), box-shadow 0.3s;
-  }
-  .nav-logo:hover .nav-badge { transform: rotate(-8deg) scale(1.1); box-shadow: 0 0 32px rgba(37,99,235,0.7); }
-
-  .nav-links { display: flex; align-items: center; gap: 4px; }
-  .nav-links a {
-    font-size: 14px; font-weight: 500;
-    color: var(--text-m);
-    padding: 8px 14px;
-    border-radius: 8px;
-    position: relative;
-    transition: color 0.25s;
-    cursor: none;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 4px; left: 50%; right: 50%;
-    height: 2px;
-    background: var(--blue-glow);
-    border-radius: 2px;
-    transition: left 0.3s var(--ease), right 0.3s var(--ease);
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--white); }
-  .nav-links a:hover::after, .nav-links a.active::after { left: 14px; right: 14px; }
-  .nav-cta { cursor: none; }
-
-  /* hamburger */
-  .hamburger {
-    display: none; flex-direction: column; gap: 5px;
-    cursor: none; padding: 8px; background: none; border: none;
-  }
-  .hamburger span {
-    display: block; width: 22px; height: 2px;
-    background: var(--text); border-radius: 2px;
-    transition: transform 0.3s var(--ease), opacity 0.3s;
-  }
-  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  .mob-overlay {
-    display: none; position: fixed; inset: 0;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(6px);
-    z-index: 997; opacity: 0;
-    transition: opacity 0.35s;
-  }
-  .mob-overlay.open { opacity: 1; }
-  .mob-menu {
-    display: none; flex-direction: column; gap: 4px;
-    position: fixed; top: 0; right: -100%;
-    width: min(320px, 90vw); height: 100vh;
-    background: rgba(10,10,15,0.97);
-    border-left: 1px solid var(--border);
-    z-index: 998;
-    padding: calc(var(--nav-h) + 28px) 28px 28px;
-    transition: right 0.4s var(--ease);
-  }
-  .mob-menu.open { right: 0; }
-  .mob-menu a {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 20px; font-weight: 600;
-    color: var(--text-m);
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-    transition: color 0.25s, padding-left 0.25s;
-    cursor: none;
-  }
-  .mob-menu a:hover { color: var(--blue-glow); padding-left: 8px; }
-  .mob-cta { margin-top: 20px; text-align: center; }
-
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .mob-menu, .mob-overlay { display: flex; }
-  }
-
-  /* ================================================================
-     HERO
-  ================================================================ */
-  #hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  /* Aurora mesh background */
-  .aurora {
-    position: absolute; inset: 0; z-index: 0;
-    overflow: hidden;
-  }
-  .aurora-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.18;
-    animation: drift 20s ease-in-out infinite alternate;
-  }
-  .aurora-blob:nth-child(1) {
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, #1E40AF, transparent 70%);
-    top: -200px; left: -150px;
-    animation-duration: 22s;
-  }
-  .aurora-blob:nth-child(2) {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, #2563EB, transparent 70%);
-    top: 10%; right: -100px;
-    animation-duration: 18s;
-    animation-delay: -7s;
-  }
-  .aurora-blob:nth-child(3) {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, #60A5FA, transparent 70%);
-    bottom: -50px; left: 30%;
-    animation-duration: 25s;
-    animation-delay: -12s;
-    opacity: 0.1;
-  }
-  @keyframes drift {
-    from { transform: translate(0, 0) scale(1); }
-    to   { transform: translate(40px, 30px) scale(1.08); }
-  }
-
-  /* Grid overlay */
-  .hero-grid {
-    position: absolute; inset: 0; z-index: 0;
-    background-image:
-      linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 40%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 40%, transparent 100%);
-  }
-
-  /* Particle canvas */
-  #particle-canvas {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    z-index: 1;
-  }
-
-  .hero-content {
-    position: relative; z-index: 2;
-    padding: calc(var(--nav-h) + 48px) 24px 100px;
-    max-width: 860px;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--blue-glow);
-    margin-bottom: 28px;
-    opacity: 0; animation: hero-fade-up 0.8s var(--ease) 0.2s forwards;
-  }
-  .hero-eyebrow span { color: var(--text-m); }
-
-  .hero-name {
-    font-size: clamp(54px, 9vw, 96px);
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1.02;
-    margin-bottom: 28px;
-    opacity: 0; animation: hero-fade-up 0.9s var(--ease) 0.4s forwards;
-  }
-  .hero-name .name-line {
-    display: block;
-    background: linear-gradient(135deg, #fff 0%, #fff 50%, var(--blue-glow) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hero-name .name-accent {
-    display: block;
-    background: linear-gradient(135deg, var(--blue-glow) 0%, #93C5FD 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-tagline {
-    font-size: clamp(16px, 2.4vw, 20px);
-    color: var(--text-m);
-    max-width: 640px;
-    margin: 0 auto 36px;
-    line-height: 1.65;
-    opacity: 0; animation: hero-fade-up 0.9s var(--ease) 0.6s forwards;
-  }
-
-  .hero-typing {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(18px, 3.2vw, 32px);
-    font-weight: 600;
-    margin-bottom: 52px;
-    min-height: 46px;
-    opacity: 0; animation: hero-fade-up 0.9s var(--ease) 0.8s forwards;
-  }
-  .hero-typing .prefix { color: var(--text-m); }
-  .hero-typing .typed {
-    color: var(--blue-glow);
-    border-right: 3px solid var(--blue-glow);
-    padding-right: 3px;
-    animation: caret 0.7s step-end infinite;
-  }
-  @keyframes caret { 50% { border-color: transparent; } }
-
-  .hero-ctas {
-    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-    margin-bottom: 72px;
-    opacity: 0; animation: hero-fade-up 0.9s var(--ease) 1.0s forwards;
-  }
-
-  /* animated stat strip */
-  .hero-stats {
-    display: flex; justify-content: center; flex-wrap: wrap;
-    gap: 0;
-    opacity: 0; animation: hero-fade-up 0.9s var(--ease) 1.2s forwards;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 12px 8px;
-    backdrop-filter: blur(16px);
-    max-width: fit-content;
-    margin: 0 auto;
-  }
-  .stat-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 4px 24px;
-    position: relative;
-  }
-  .stat-item + .stat-item::before {
-    content: '';
-    position: absolute; left: 0; top: 20%; bottom: 20%;
-    width: 1px; background: var(--border);
-  }
-  .stat-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 22px; font-weight: 800;
-    color: var(--white);
-    line-height: 1;
-  }
-  .stat-label { font-size: 12px; color: var(--text-m); line-height: 1.3; text-align: left; }
-
-  .scroll-hint {
-    position: absolute; bottom: 32px; left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: var(--text-d); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-    opacity: 0; animation: hero-fade-up 0.9s var(--ease) 2s forwards;
-  }
-  .scroll-hint-track {
-    width: 1.5px; height: 44px;
-    background: linear-gradient(180deg, var(--blue-glow), transparent);
-    animation: scroll-track 2s ease infinite;
-  }
-  @keyframes scroll-track {
-    0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
-    50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
-    100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
-  }
-
-  @keyframes hero-fade-up {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 600px) {
-    .hero-stats { border-radius: var(--r); }
-    .stat-item { padding: 8px 16px; }
-    .stat-item + .stat-item::before { display: none; }
-  }
-
-  /* ================================================================
-     MARQUEE
-  ================================================================ */
-  #marquee {
-    background: var(--near-black);
-    padding: 48px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    overflow: hidden;
-  }
-  .marquee-label {
-    text-align: center; font-size: 11px; font-weight: 700;
-    letter-spacing: 0.28em; text-transform: uppercase;
-    color: var(--text-d); margin-bottom: 32px;
-  }
-  .marquee-wrap {
-    position: relative; overflow: hidden;
-  }
-  .marquee-wrap::before, .marquee-wrap::after {
-    content: ''; position: absolute;
-    top: 0; bottom: 0; width: 140px;
-    z-index: 2; pointer-events: none;
-  }
-  .marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--near-black), transparent); }
-  .marquee-wrap::after  { right: 0; background: linear-gradient(to left, var(--near-black), transparent); }
-
-  .marquee-row { display: flex; margin-bottom: 24px; }
-  .marquee-row:last-child { margin-bottom: 0; }
-  .marquee-track {
-    display: flex; align-items: center;
-    gap: 64px; white-space: nowrap;
-    will-change: transform;
-  }
-  .marquee-row:nth-child(1) .marquee-track { animation: mq-left  24s linear infinite; }
-  .marquee-row:nth-child(2) .marquee-track { animation: mq-right 30s linear infinite; }
-  .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
-
-  @keyframes mq-left  { 0% { transform: translateX(0); }    100% { transform: translateX(-50%); } }
-  @keyframes mq-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-
-  .mq-logo { display: flex; align-items: center; flex-shrink: 0; opacity: 0.45; transition: opacity 0.3s; cursor: none; }
-  .mq-logo:hover { opacity: 1; }
-  .mq-logo img { height: 32px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
-  .mq-logo .logo-fb { color: var(--text-m); font-weight: 700; font-size: 13px; }
-
-  /* ================================================================
-     ABOUT
-  ================================================================ */
-  #about {
-    padding: 130px 0;
-    background: linear-gradient(180deg, var(--black) 0%, var(--near-black) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  #about::before {
-    content: '';
-    position: absolute;
-    top: 0; right: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(37,99,235,0.06), transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: 90px;
-    align-items: center;
-  }
-
-  .about-bio { font-size: 17px; color: var(--text-m); line-height: 1.85; margin-bottom: 40px; }
-  .about-bio p { margin-bottom: 20px; }
-  .about-bio p:last-child { margin-bottom: 0; }
-  .about-bio strong { color: var(--text); }
-
-  .about-values { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 44px; }
-  .value-card {
-    padding: 20px 16px; text-align: center;
-    transition: transform 0.3s var(--spring), border-color 0.3s;
-  }
-  .value-card:hover { transform: translateY(-4px); border-color: var(--border-blue); }
-  .value-icon {
-    width: 44px; height: 44px; margin: 0 auto 12px;
-    background: rgba(37,99,235,0.15);
-    border: 1px solid rgba(37,99,235,0.2);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: var(--blue-glow);
-  }
-  .value-card h4 { font-size: 13px; font-weight: 600; line-height: 1.3; }
-
-  .about-logo-strip { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
-  .about-logo-strip .logo-wrap img { height: 22px; opacity: 0.4; }
-  .about-logo-strip .logo-wrap:hover img { opacity: 0.9; filter: none; }
-
-  /* PROFILE CARD */
-  .profile-card-outer { display: flex; justify-content: center; }
-  .profile-card {
-    width: 320px; height: 440px;
-    position: relative;
-    background: linear-gradient(145deg, #0f1c3f 0%, #0a0f1e 50%, #0d1a38 100%);
-    border-radius: 28px;
-    border: 1px solid rgba(37,99,235,0.25);
-    overflow: hidden;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    box-shadow: 0 0 80px rgba(37,99,235,0.18), 0 40px 80px rgba(0,0,0,0.4);
-  }
-  .pc-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
-    background-size: 28px 28px;
-    pointer-events: none;
-  }
-  .pc-glow {
-    position: absolute;
-    top: -60px; left: 50%; transform: translateX(-50%);
-    width: 260px; height: 260px;
-    background: radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 65%);
-    pointer-events: none;
-  }
-  .pc-ring {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(37,99,235,0.12);
-    animation: ring-pulse 4s ease-in-out infinite;
-  }
-  .pc-ring:nth-child(1) { width: 200px; height: 200px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-  .pc-ring:nth-child(2) { width: 280px; height: 280px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: -1.5s; }
-  .pc-ring:nth-child(3) { width: 360px; height: 360px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: -3s; }
-  @keyframes ring-pulse {
-    0%,100% { opacity: 0.4; }
-    50% { opacity: 0.1; }
-  }
-  .pc-photo {
-    position: relative; z-index: 1;
-    width: 110px; height: 110px;
-    border-radius: 50%;
-    border: 3px solid rgba(37,99,235,0.55);
-    object-fit: cover;
-    margin-bottom: 22px;
-    box-shadow: 0 0 0 6px rgba(37,99,235,0.12), 0 0 40px rgba(37,99,235,0.35);
-    transition: transform 0.4s var(--spring), box-shadow 0.4s;
-  }
-  .profile-card:hover .pc-photo {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 8px rgba(37,99,235,0.18), 0 0 56px rgba(37,99,235,0.5);
-  }
-  /* fallback monogram if photo fails */
-  .pc-monogram {
-    position: relative; z-index: 1;
-    width: 110px; height: 110px;
-    background: linear-gradient(135deg, rgba(37,99,235,0.3) 0%, rgba(37,99,235,0.08) 100%);
-    border: 2px solid rgba(37,99,235,0.4);
-    border-radius: 50%;
-    display: none; align-items: center; justify-content: center;
-    font-size: 42px; font-weight: 800;
-    margin-bottom: 22px;
-    box-shadow: 0 0 40px rgba(37,99,235,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .pc-name { position: relative; z-index: 1; font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 6px; }
-  .pc-title {
-    position: relative; z-index: 1;
-    font-size: 12px; color: var(--blue-glow);
-    letter-spacing: 0.08em; text-align: center; margin-bottom: 20px;
-  }
-  .pc-badge {
-    position: relative; z-index: 1;
-    display: flex; align-items: center; gap: 8px;
-    background: rgba(37,99,235,0.18);
-    border: 1px solid rgba(37,99,235,0.35);
-    border-radius: 100px;
-    padding: 8px 16px;
-    font-size: 13px; font-weight: 600;
-  }
-  .pc-badge .logo-wrap img { height: 16px; }
-  .pc-badge .logo-fb { display: none; color: var(--blue-glow); font-size: 11px; }
-  .pc-dots {
-    position: absolute; bottom: 20px; left: 0; right: 0;
-    display: flex; justify-content: center; gap: 6px; z-index: 1;
-  }
-  .pc-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(37,99,235,0.3);
-  }
-  .pc-dot:nth-child(2) { background: var(--blue); width: 18px; border-radius: 3px; }
-
-  @media (max-width: 960px) {
-    .about-grid { grid-template-columns: 1fr; gap: 56px; }
-    .profile-card-outer { order: -1; }
-    .about-values { grid-template-columns: repeat(3,1fr); }
-  }
-  @media (max-width: 500px) { .about-values { grid-template-columns: 1fr; } }
-
-  /* ================================================================
-     EXPERIENCE
-  ================================================================ */
-  #experience {
-    padding: 130px 0;
-    background: var(--black);
-    position: relative;
-  }
-  #experience::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(37,99,235,0.05), transparent 70%);
-    pointer-events: none;
-  }
-  .exp-header { text-align: center; }
-  .exp-header .section-sub { margin: 0 auto 90px; }
-
-  .timeline { position: relative; max-width: 860px; margin: 0 auto; }
-  .timeline-line {
-    position: absolute;
-    left: 50%; top: 0; bottom: 0;
-    width: 1px;
-    background: linear-gradient(180deg, var(--blue) 0%, rgba(37,99,235,0.15) 100%);
-    transform: translateX(-50%);
-  }
-  .timeline-line-fill {
-    width: 100%; background: linear-gradient(180deg, var(--blue-glow), var(--blue));
-    height: 0%;
-    transition: height 0.1s linear;
-    box-shadow: 0 0 8px rgba(96,165,250,0.4);
-  }
-
-  .tl-entry {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: calc(50% + 36px);
-    margin-bottom: 52px;
-    position: relative;
-  }
-  .tl-entry:nth-child(odd) {
-    justify-content: flex-start;
-    padding-right: 0;
-    padding-left: calc(50% + 36px);
-  }
-
-  /* connector dot */
-  .tl-entry::before {
-    content: '';
-    position: absolute;
-    left: 50%; top: 30px;
-    width: 14px; height: 14px;
-    background: var(--black);
-    border: 2.5px solid var(--blue);
-    border-radius: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 14px rgba(37,99,235,0.6);
-    z-index: 1;
-    transition: transform 0.3s var(--spring), box-shadow 0.3s, background 0.3s;
-  }
-  .tl-entry:hover::before {
-    transform: translateX(-50%) scale(1.6);
-    box-shadow: 0 0 24px rgba(37,99,235,1);
-    background: var(--blue);
-  }
-
-  .tl-card {
-    width: 100%; max-width: 370px;
-    padding: 28px;
-    transition: transform 0.35s var(--spring), box-shadow 0.35s, border-color 0.35s, background 0.35s;
-  }
-  .tl-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 60px -12px rgba(37,99,235,0.28);
-    border-color: rgba(37,99,235,0.3);
-    background: var(--glass-h);
-  }
-  .tl-card:hover .logo-wrap img { filter: none; opacity: 1; }
-
-  .tc-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; gap: 10px; }
-  .tc-logos { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-  .tc-logos .logo-wrap img { height: 26px; }
-  .tc-num {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
-    color: var(--blue-glow);
-    background: rgba(37,99,235,0.1);
-    border: 1px solid rgba(37,99,235,0.2);
-    border-radius: 100px;
-    padding: 4px 10px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .tc-role { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 4px; }
-  .tc-company {
-    font-size: 12px; font-weight: 700;
-    color: var(--blue-glow);
-    letter-spacing: 0.1em; text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .tc-desc { font-size: 14px; color: var(--text-m); line-height: 1.7; }
-
-  @media (max-width: 720px) {
-    .timeline-line { left: 18px; }
-    .tl-entry, .tl-entry:nth-child(odd) {
-      justify-content: flex-start;
-      padding-left: 52px; padding-right: 0;
-    }
-    .tl-entry::before, .tl-entry:nth-child(odd)::before { left: 18px; }
-    .tl-card { max-width: 100%; }
-  }
-
-  /* ================================================================
-     SKILLS
-  ================================================================ */
-  #skills {
-    padding: 130px 0;
-    background: linear-gradient(180deg, var(--near-black) 0%, var(--black) 100%);
-    position: relative; overflow: hidden;
-  }
-  #skills::after {
-    content: '';
-    position: absolute;
-    top: 50%; right: -200px; transform: translateY(-50%);
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(37,99,235,0.05), transparent 70%);
-    pointer-events: none;
-  }
-  .skills-header { text-align: center; }
-  .skills-header .section-sub { margin: 0 auto 72px; }
-
-  .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-
-  .skill-card { padding: 32px 28px; }
-  .sk-icon {
-    width: 52px; height: 52px; margin-bottom: 20px;
-    background: linear-gradient(135deg, rgba(37,99,235,0.22), rgba(37,99,235,0.06));
-    border: 1px solid rgba(37,99,235,0.25);
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; color: var(--blue-glow);
-    transition: transform 0.3s var(--spring), box-shadow 0.3s;
-  }
-  .skill-card:hover .sk-icon {
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 0 24px rgba(37,99,235,0.35);
-  }
-  .sk-name { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
-  .sk-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .sk-tag {
-    font-size: 12px; font-weight: 500;
-    padding: 5px 12px;
-    background: rgba(37,99,235,0.12);
-    border: 1px solid rgba(37,99,235,0.28);
-    color: var(--blue-glow);
-    border-radius: 100px;
-    transition: background 0.25s, transform 0.25s var(--spring);
-    cursor: default;
-  }
-  .sk-tag:hover { background: rgba(37,99,235,0.24); transform: translateY(-2px); }
-
-  @media (max-width: 900px) { .skills-grid { grid-template-columns: repeat(2,1fr); } }
-  @media (max-width: 520px) { .skills-grid { grid-template-columns: 1fr; } }
-
-  /* ================================================================
-     CONTENT / INFLUENCE
-  ================================================================ */
-  #content {
-    padding: 130px 0;
-    background: var(--black);
-    position: relative; overflow: hidden;
-  }
-  #content::before {
-    content: '';
-    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-    width: 800px; height: 400px;
-    background: radial-gradient(ellipse, rgba(37,99,235,0.08), transparent 70%);
-    pointer-events: none;
-  }
-  .content-header { text-align: center; }
-  .content-header .section-sub { margin: 0 auto 72px; }
-
-  .pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-bottom: 72px; }
-  .pillar {
-    padding: 40px 32px; text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .pillar::before {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--blue), transparent);
-    transform: scaleX(0);
-    transition: transform 0.4s var(--ease);
-  }
-  .pillar:hover::before { transform: scaleX(1); }
-  .pillar-icon-wrap {
-    width: 76px; height: 76px; margin: 0 auto 28px;
-    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-glow) 100%);
-    border-radius: 22px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 30px;
-    box-shadow: 0 12px 36px rgba(37,99,235,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
-    transition: transform 0.35s var(--spring), box-shadow 0.35s;
-  }
-  .pillar:hover .pillar-icon-wrap {
-    transform: scale(1.08) translateY(-4px);
-    box-shadow: 0 20px 48px rgba(37,99,235,0.5);
-  }
-  .pillar-title { font-size: 20px; font-weight: 700; margin-bottom: 14px; }
-  .pillar-desc { font-size: 15px; color: var(--text-m); line-height: 1.75; }
-
-  .content-cta-area { text-align: center; margin-bottom: 80px; }
-
-  .newsletter-box { max-width: 540px; margin: 0 auto; text-align: center; }
-  .newsletter-box h3 { font-size: 26px; margin-bottom: 8px; }
-  .newsletter-box p { font-size: 15px; color: var(--text-m); margin-bottom: 28px; }
-  .nl-form { display: flex; flex-direction: column; gap: 14px; }
-  .nl-row { display: flex; gap: 14px; }
-  .nl-row .field { flex: 1; }
-
-  @media (max-width: 768px) {
-    .pillars { grid-template-columns: 1fr; }
-    .nl-row { flex-direction: column; }
-  }
-
-  /* ================================================================
-     CONTACT
-  ================================================================ */
-  #contact {
-    padding: 130px 0;
-    background: linear-gradient(180deg, var(--near-black) 0%, var(--black) 100%);
-    position: relative; overflow: hidden;
-  }
-  #contact::after {
-    content: '';
-    position: absolute; bottom: -100px; right: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(37,99,235,0.06), transparent 70%);
-    pointer-events: none;
-  }
-  .contact-header { text-align: center; }
-  .contact-header .section-sub { margin: 0 auto 72px; }
-
-  .contact-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 72px; }
-  .cc {
-    padding: 36px 24px; text-align: center;
-    transition: transform 0.3s var(--spring), box-shadow 0.3s, border-color 0.3s;
-  }
-  .cc:hover { transform: translateY(-5px); box-shadow: 0 16px 48px -8px rgba(37,99,235,0.25); border-color: var(--border-blue); }
-  .cc-icon {
-    width: 58px; height: 58px; margin: 0 auto 20px;
-    background: rgba(37,99,235,0.12);
-    border: 1px solid rgba(37,99,235,0.22);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; color: var(--blue-glow);
-    transition: transform 0.3s var(--spring), background 0.3s;
-  }
-  .cc:hover .cc-icon { transform: scale(1.12) rotate(8deg); background: rgba(37,99,235,0.2); }
-  .cc h3 { font-size: 17px; margin-bottom: 8px; }
-  .cc p { font-size: 14px; color: var(--text-m); }
-  .cc a { color: var(--blue-glow); transition: color 0.25s; cursor: none; }
-  .cc a:hover { color: var(--white); }
-
-  .contact-form-wrap { max-width: 660px; margin: 0 auto; }
-  .cf { display: flex; flex-direction: column; gap: 18px; }
-  .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-
-  @media (max-width: 600px) {
-    .contact-cards { grid-template-columns: 1fr; }
-    .cf-row { grid-template-columns: 1fr; }
-  }
-
-  /* ================================================================
-     FOOTER
-  ================================================================ */
-  footer {
-    background: var(--near-black);
-    border-top: 1px solid var(--border);
-    padding: 36px 0;
-  }
-  .footer-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 20px; flex-wrap: wrap;
-  }
-  .footer-logo { display: flex; align-items: center; gap: 10px; }
-  .footer-badge {
-    width: 32px; height: 32px;
-    background: linear-gradient(135deg, var(--blue), var(--blue-glow));
-    border-radius: 9px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 800;
-    box-shadow: 0 0 14px rgba(37,99,235,0.4);
-  }
-  .footer-copy { font-size: 13px; color: var(--text-d); }
-  .footer-copy strong { color: var(--text-m); }
-  .footer-links { display: flex; gap: 8px; }
-  .footer-link {
-    width: 38px; height: 38px;
-    background: var(--glass);
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--text-m); font-size: 15px;
-    transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s var(--spring);
-    cursor: none;
-  }
-  .footer-link:hover {
-    color: var(--white);
-    border-color: rgba(37,99,235,0.4);
-    background: rgba(37,99,235,0.12);
-    transform: translateY(-3px);
-  }
-
-  </style>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://plausible.io" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+  <link rel="preload" href="assets/css/styles.css" as="style" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer data-domain="damarcuslett.github.io" src="https://plausible.io/js/script.js"></script>
+  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
 
-<!-- CURSOR -->
-<div id="cursor-dot"  aria-hidden="true"></div>
-<div id="cursor-ring" aria-hidden="true"></div>
-
-<!-- SCROLL PROGRESS -->
-<div id="progress-bar" role="progressbar" aria-hidden="true"></div>
-
-<!-- ================================================================
-     NAVIGATION
-================================================================ -->
-<nav id="nav" role="navigation" aria-label="Main navigation">
-  <div class="container nav-inner">
-    <a href="#hero" class="nav-logo" aria-label="Damarcus Lett — Home">
-      <div class="nav-badge" aria-hidden="true">DL</div>
-      <span>Damarcus Lett</span>
-    </a>
-
-    <div class="nav-links" role="menubar">
-      <a href="#about"      role="menuitem">About</a>
-      <a href="#experience" role="menuitem">Experience</a>
-      <a href="#skills"     role="menuitem">Skills</a>
-      <a href="#content"    role="menuitem">Content</a>
-      <a href="#contact"    role="menuitem">Contact</a>
-      <a href="#contact" class="btn btn-primary nav-cta" style="padding:10px 22px; border-radius:100px; font-size:14px;" role="menuitem">Let's Connect</a>
+  <header class="site-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="#hero" class="nav-logo" aria-label="Damarcus Lett — back to top">
+          <span class="logo-monogram" aria-hidden="true">DL</span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="#about" aria-label="Navigate to About section">About</a></li>
+          <li><a href="#experience" aria-label="Navigate to Experience section">Experience</a></li>
+          <li><a href="#skills" aria-label="Navigate to Skills section">Skills</a></li>
+          <li><a href="#content" aria-label="Navigate to Content section">Content</a></li>
+          <li><a href="#contact" aria-label="Navigate to Contact section">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark theme">
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <a href="#contact" class="btn-primary btn-magnetic" aria-label="Contact Damarcus Lett">Let's Connect</a>
+          <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+      <ul class="mobile-nav-links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#content">Content</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="btn-primary" aria-label="Contact Damarcus Lett">Let's Connect</a></li>
+      </ul>
     </div>
+  </header>
 
-    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+  <main id="main-content">
 
-<!-- Mobile -->
-<div class="mob-overlay" id="mob-overlay" aria-hidden="true"></div>
-<nav class="mob-menu" id="mob-menu" aria-label="Mobile navigation">
-  <a href="#about"      class="mob-link">About</a>
-  <a href="#experience" class="mob-link">Experience</a>
-  <a href="#skills"     class="mob-link">Skills</a>
-  <a href="#content"    class="mob-link">Content</a>
-  <a href="#contact"    class="mob-link">Contact</a>
-  <div class="mob-cta">
-    <a href="#contact" class="btn btn-primary mob-link" style="display:inline-flex;">Let's Connect</a>
-  </div>
-</nav>
-
-<!-- ================================================================
-     HERO
-================================================================ -->
-<section id="hero" aria-label="Introduction">
-  <div class="aurora" aria-hidden="true">
-    <div class="aurora-blob"></div>
-    <div class="aurora-blob"></div>
-    <div class="aurora-blob"></div>
-  </div>
-  <div class="hero-grid" aria-hidden="true"></div>
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
-  <div class="hero-content">
-    <p class="hero-eyebrow">
-      Technical Program Manager&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;Tech Leader&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;Thought Leader
-    </p>
-
-    <h1 class="hero-name">
-      <span class="name-line">Damarcus</span>
-      <span class="name-accent">Lett</span>
-    </h1>
-
-    <p class="hero-tagline">
-      Building the Future of Tech at Microsoft &mdash; One System, One Story at a Time.
-    </p>
-
-    <div class="hero-typing" aria-live="polite">
-      <span class="prefix">I am a&nbsp;</span><span class="typed" id="typed"></span>
-    </div>
-
-    <div class="hero-ctas">
-      <a href="#experience" class="btn btn-primary">
-        <i class="fa-solid fa-arrow-down-long" aria-hidden="true"></i> View My Work
+    <section id="hero" class="hero-section" role="region" aria-label="Hero introduction">
+      <canvas id="particle-canvas" aria-hidden="true"></canvas>
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow animate-in" data-delay="0">Technical Program Manager &bull; Engineer &bull; Thought Leader</p>
+        <h1 class="hero-name animate-in" data-delay="100">Damarcus Lett</h1>
+        <div class="hero-typing animate-in" data-delay="200" aria-live="polite">
+          <span class="typing-prefix">I am a </span>
+          <span class="typing-text" id="typing-text"></span>
+          <span class="typing-cursor" aria-hidden="true">|</span>
+        </div>
+        <p class="hero-tagline animate-in" data-delay="300">Building the Future of Tech at Microsoft &mdash;<br>One System, One Story at a Time.</p>
+        <div class="hero-ctas animate-in" data-delay="400">
+          <a href="#experience" class="btn-primary btn-magnetic" aria-label="View Damarcus Lett's work experience">View My Work</a>
+          <a href="#contact" class="btn-ghost" aria-label="Follow Damarcus Lett's journey">Follow My Journey</a>
+        </div>
+        <div class="hero-stats animate-in" data-delay="500" role="list" aria-label="Career highlights">
+          <div class="stat-item" role="listitem">
+            <span class="stat-number" data-count="10" data-suffix="+">0+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-number" data-count="9" data-suffix="">0</span>
+            <span class="stat-label">Companies</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-label-single">Xbox @ Microsoft</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-label-single">BIS Degree</span>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-indicator" aria-label="Scroll to About section">
+        <span class="scroll-arrow" aria-hidden="true"></span>
       </a>
-      <a href="#contact" class="btn btn-ghost">
-        <i class="fa-brands fa-linkedin" aria-hidden="true"></i> Follow My Journey
-      </a>
-    </div>
+    </section>
 
-    <div class="hero-stats" role="list">
-      <div class="stat-item" role="listitem">
-        <div>
-          <div class="stat-num" data-count="10" data-suffix="+">0</div>
-          <div class="stat-label">Years<br>Experience</div>
-        </div>
-      </div>
-      <div class="stat-item" role="listitem">
-        <div>
-          <div class="stat-num" data-count="9">0</div>
-          <div class="stat-label">Iconic<br>Companies</div>
-        </div>
-      </div>
-      <div class="stat-item" role="listitem">
-        <div>
-          <div class="stat-num" style="-webkit-text-fill-color:var(--blue-glow); background:none; color:var(--blue-glow); font-size:18px; letter-spacing:-0.01em;">Xbox<br>@MSFT</div>
-        </div>
-      </div>
-      <div class="stat-item" role="listitem">
-        <div>
-          <div class="stat-num" style="-webkit-text-fill-color:var(--blue-glow); background:none; color:var(--blue-glow); font-size:18px;">BIS<br>Degree</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="scroll-hint" aria-hidden="true">
-    <span>Scroll</span>
-    <div class="scroll-hint-track"></div>
-  </div>
-</section>
-
-<!-- ================================================================
-     MARQUEE
-================================================================ -->
-<section id="marquee" aria-label="Companies — industry experience">
-  <p class="marquee-label">Experience Across Industry Leaders</p>
-  <div class="marquee-wrap">
-
-    <!-- ROW 1: left -->
-    <div class="marquee-row">
-      <div class="marquee-track" aria-hidden="true">
-        <!-- set 1 -->
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">MICROSOFT</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg" alt="Xbox" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">XBOX</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">INTEL</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell Technologies" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">DELL</span></div>
-        <div class="mq-logo"><img src="https://www.vectorlogo.zone/logos/boeing/boeing-ar21.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
-        <!-- set 2 (duplicate for seamless loop) -->
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">MICROSOFT</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg" alt="Xbox" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">XBOX</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">INTEL</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell Technologies" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">DELL</span></div>
-        <div class="mq-logo"><img src="https://www.vectorlogo.zone/logos/boeing/boeing-ar21.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
-      </div>
-    </div>
-
-    <!-- ROW 2: right -->
-    <div class="marquee-row">
-      <div class="marquee-track" aria-hidden="true">
-        <!-- set 1 -->
-        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/eaton-6.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/General_Electric_logo.svg" alt="General Electric" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">GE</span></div>
-        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/johnson-johnson-1.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
-        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/emerson-electric.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
-        <!-- set 2 -->
-        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/eaton-6.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/General_Electric_logo.svg" alt="General Electric" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">GE</span></div>
-        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/johnson-johnson-1.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
-        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/emerson-electric.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================================================================
-     ABOUT
-================================================================ -->
-<section id="about" aria-labelledby="about-h">
-  <div class="container">
-    <div class="about-grid">
-
-      <div class="about-text">
-        <span class="section-eyebrow reveal">About Me</span>
-        <h2 class="section-title reveal" id="about-h">The Engineer Behind the Brand</h2>
-
-        <div class="about-bio reveal">
-          <p>I'm <strong>Damarcus Lett</strong> — a Business Information Systems graduate turned Technical Program Manager at Microsoft, where I drive Xbox engineering initiatives that reach millions of users worldwide.</p>
-          <p>My journey spans GE, Emerson, Johnson &amp; Johnson, Boeing, Dell Technologies, Intel, and now Microsoft. Each stop sharpened my ability to bridge complex technical systems with strategic business outcomes.</p>
-          <p>Now I'm on a mission to demystify tech and engineering for the next generation — sharing real stories from inside the world's most iconic companies.</p>
-        </div>
-
-        <div class="about-values reveal">
-          <div class="value-card glass glass-hover">
-            <div class="value-icon"><i class="fa-solid fa-gears" aria-hidden="true"></i></div>
-            <h4>Engineering Excellence</h4>
-          </div>
-          <div class="value-card glass glass-hover">
-            <div class="value-icon"><i class="fa-solid fa-chess-king" aria-hidden="true"></i></div>
-            <h4>Strategic Thinking</h4>
-          </div>
-          <div class="value-card glass glass-hover">
-            <div class="value-icon"><i class="fa-solid fa-megaphone" aria-hidden="true"></i></div>
-            <h4>Amplifying Voices</h4>
+    <section class="marquee-section" aria-label="Companies where Damarcus has worked">
+      <div class="marquee-label">EXPERIENCE ACROSS INDUSTRY LEADERS</div>
+      <div class="marquee-container">
+        <div class="marquee-row marquee-row--left" aria-hidden="true">
+          <div class="marquee-track">
+            <div class="marquee-item"><img src="assets/logos/microsoft.svg" alt="Microsoft" class="company-logo marquee-logo" loading="lazy" decoding="async" width="120" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span></div>
+            <div class="marquee-item"><img src="assets/logos/xbox.svg" alt="Xbox" class="company-logo marquee-logo" loading="lazy" decoding="async" width="80" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Xbox</span></div>
+            <div class="marquee-item"><img src="assets/logos/intel.svg" alt="Intel" class="company-logo marquee-logo" loading="lazy" decoding="async" width="80" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Intel</span></div>
+            <div class="marquee-item"><img src="assets/logos/dell.png" alt="Dell Technologies" class="company-logo marquee-logo" loading="lazy" decoding="async" width="100" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Dell</span></div>
+            <div class="marquee-item"><img src="assets/logos/boeing.svg" alt="Boeing" class="company-logo marquee-logo" loading="lazy" decoding="async" width="110" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Boeing</span></div>
+            <div class="marquee-item"><img src="assets/logos/microsoft.svg" alt="Microsoft" class="company-logo marquee-logo" loading="lazy" decoding="async" width="120" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span></div>
+            <div class="marquee-item"><img src="assets/logos/xbox.svg" alt="Xbox" class="company-logo marquee-logo" loading="lazy" decoding="async" width="80" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Xbox</span></div>
+            <div class="marquee-item"><img src="assets/logos/intel.svg" alt="Intel" class="company-logo marquee-logo" loading="lazy" decoding="async" width="80" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Intel</span></div>
+            <div class="marquee-item"><img src="assets/logos/dell.png" alt="Dell Technologies" class="company-logo marquee-logo" loading="lazy" decoding="async" width="100" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Dell</span></div>
+            <div class="marquee-item"><img src="assets/logos/boeing.svg" alt="Boeing" class="company-logo marquee-logo" loading="lazy" decoding="async" width="110" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Boeing</span></div>
           </div>
         </div>
-
-        <div class="about-logo-strip reveal">
-          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">MSFT</span></div>
-          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg" alt="Xbox" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">XBOX</span></div>
-          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">INTEL</span></div>
-          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell Technologies" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">DELL</span></div>
-          <div class="logo-wrap"><img src="https://www.vectorlogo.zone/logos/boeing/boeing-ar21.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
-          <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/eaton-6.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
-          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/General_Electric_logo.svg" alt="General Electric" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">GE</span></div>
-          <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/johnson-johnson-1.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
-          <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/emerson-electric.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
+        <div class="marquee-row marquee-row--right" aria-hidden="true">
+          <div class="marquee-track">
+            <div class="marquee-item"><img src="assets/logos/eaton.svg" alt="Eaton" class="company-logo marquee-logo" loading="lazy" decoding="async" width="90" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Eaton</span></div>
+            <div class="marquee-item"><img src="assets/logos/ge.svg" alt="General Electric" class="company-logo marquee-logo" loading="lazy" decoding="async" width="60" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">GE</span></div>
+            <div class="marquee-item"><img src="assets/logos/jj.svg" alt="Johnson and Johnson" class="company-logo marquee-logo" loading="lazy" decoding="async" width="120" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">J&amp;J</span></div>
+            <div class="marquee-item"><img src="assets/logos/emerson.svg" alt="Emerson" class="company-logo marquee-logo" loading="lazy" decoding="async" width="110" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Emerson</span></div>
+            <div class="marquee-item"><img src="assets/logos/eaton.svg" alt="Eaton" class="company-logo marquee-logo" loading="lazy" decoding="async" width="90" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Eaton</span></div>
+            <div class="marquee-item"><img src="assets/logos/ge.svg" alt="General Electric" class="company-logo marquee-logo" loading="lazy" decoding="async" width="60" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">GE</span></div>
+            <div class="marquee-item"><img src="assets/logos/jj.svg" alt="Johnson and Johnson" class="company-logo marquee-logo" loading="lazy" decoding="async" width="120" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">J&amp;J</span></div>
+            <div class="marquee-item"><img src="assets/logos/emerson.svg" alt="Emerson" class="company-logo marquee-logo" loading="lazy" decoding="async" width="110" height="36" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Emerson</span></div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="profile-card-outer reveal from-right">
-        <div class="profile-card">
-          <div class="pc-grid" aria-hidden="true"></div>
-          <div class="pc-glow" aria-hidden="true"></div>
-          <div class="pc-ring" aria-hidden="true"></div>
-          <div class="pc-ring" aria-hidden="true"></div>
-          <div class="pc-ring" aria-hidden="true"></div>
-          <img
-            class="pc-photo"
-            src="https://media.licdn.com/dms/image/v2/D5603AQHmQ68oPf9Ldg/profile-displayphoto-shrink_200_200/B56ZX3S94wGcAk-/0/1743610699720?e=2147483647&v=beta&t=KYFoAAjYXe-dGCLRgKdHIrjj2JStGiMiYFxFENfk5_Y"
-            alt="Damarcus Lett headshot"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <div class="pc-monogram" aria-hidden="true">DL</div>
-          <p class="pc-name">Damarcus Lett</p>
-          <p class="pc-title">Technical Program Manager</p>
-          <div class="pc-badge">
-            <div class="logo-wrap">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-              <span class="logo-fb">MSFT</span>
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="about" class="about-section" role="region" aria-label="About Damarcus Lett">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="section-eyebrow">About Me</p>
+            <h2 class="section-heading">The Engineer Behind the Brand</h2>
+            <p class="about-bio">I'm Damarcus Lett — a Business Information Systems graduate turned Technical Program Manager at Microsoft, where I drive Xbox engineering initiatives that reach millions of users worldwide.</p>
+            <p class="about-bio">My journey spans GE, Emerson, Johnson &amp; Johnson, Boeing, Dell Technologies, Intel, and now Microsoft. Each stop sharpened my ability to bridge complex technical systems with strategic business outcomes.</p>
+            <p class="about-bio">Now I'm on a mission to demystify tech and engineering for the next generation — sharing real stories from inside the world's most iconic companies.</p>
+            <div class="about-values" role="list" aria-label="Core values">
+              <div class="value-card glass-card" role="listitem">
+                <span class="value-icon" aria-hidden="true">&#9889;</span>
+                <h3>Engineering Excellence</h3>
+              </div>
+              <div class="value-card glass-card" role="listitem">
+                <span class="value-icon" aria-hidden="true">&#127919;</span>
+                <h3>Strategic Thinking</h3>
+              </div>
+              <div class="value-card glass-card" role="listitem">
+                <span class="value-icon" aria-hidden="true">&#128227;</span>
+                <h3>Amplifying Voices in Tech</h3>
+              </div>
             </div>
-            <span>Xbox Engineering</span>
-          </div>
-          <div class="pc-dots" aria-hidden="true">
-            <div class="pc-dot"></div>
-            <div class="pc-dot"></div>
-            <div class="pc-dot"></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     EXPERIENCE
-================================================================ -->
-<section id="experience" aria-labelledby="exp-h">
-  <div class="container">
-    <div class="exp-header">
-      <span class="section-eyebrow reveal">Career Journey</span>
-      <h2 class="section-title reveal" id="exp-h">A Career Built Across Industry Giants</h2>
-      <p class="section-sub reveal">Nine companies. Millions of users impacted. A story still being written.</p>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-line" aria-hidden="true"><div class="timeline-line-fill" id="tl-fill"></div></div>
-
-      <!-- Entry 1 -->
-      <div class="tl-entry reveal from-left">
-        <article class="tl-card glass" aria-label="Xbox Technical Program Manager at Microsoft">
-          <div class="tc-top">
-            <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">MSFT</span></div>
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg" alt="Xbox" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">XBOX</span></div>
+            <div class="mini-logos" aria-label="Companies Damarcus has worked with">
+              <img src="assets/logos/microsoft.svg" alt="Microsoft" class="mini-logo" loading="lazy" decoding="async" width="80" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span>
+              <img src="assets/logos/xbox.svg" alt="Xbox" class="mini-logo" loading="lazy" decoding="async" width="50" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Xbox</span>
+              <img src="assets/logos/intel.svg" alt="Intel" class="mini-logo" loading="lazy" decoding="async" width="50" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Intel</span>
+              <img src="assets/logos/dell.png" alt="Dell Technologies" class="mini-logo" loading="lazy" decoding="async" width="60" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Dell</span>
+              <img src="assets/logos/boeing.svg" alt="Boeing" class="mini-logo" loading="lazy" decoding="async" width="70" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Boeing</span>
+              <img src="assets/logos/ge.svg" alt="General Electric" class="mini-logo" loading="lazy" decoding="async" width="40" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">GE</span>
+              <img src="assets/logos/jj.svg" alt="Johnson and Johnson" class="mini-logo" loading="lazy" decoding="async" width="80" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">J&amp;J</span>
+              <img src="assets/logos/eaton.svg" alt="Eaton" class="mini-logo" loading="lazy" decoding="async" width="60" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Eaton</span>
+              <img src="assets/logos/emerson.svg" alt="Emerson" class="mini-logo" loading="lazy" decoding="async" width="70" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Emerson</span>
             </div>
-            <span class="tc-num">#01 &mdash; Current</span>
           </div>
-          <h3 class="tc-role">Xbox Technical Program Manager</h3>
-          <p class="tc-company">Microsoft</p>
-          <p class="tc-desc">Driving Xbox engineering programs and technical initiatives impacting millions of global users. Leading cross-org alignment across Xbox hardware, software, and platform teams.</p>
-        </article>
-      </div>
-
-      <!-- Entry 2 -->
-      <div class="tl-entry reveal from-right">
-        <article class="tl-card glass" aria-label="Program Manager II at Microsoft">
-          <div class="tc-top">
-            <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">MSFT</span></div>
+          <div class="about-profile">
+            <div class="profile-card glass-card" aria-label="Damarcus Lett profile card">
+              <div class="profile-circuit" aria-hidden="true"></div>
+              <div class="profile-monogram" aria-hidden="true">DL</div>
+              <div class="profile-badge">
+                <img src="assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" decoding="async" width="80" height="24" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span>
+                <span class="badge-text">Technical Program Manager</span>
+              </div>
+              <div class="profile-glow" aria-hidden="true"></div>
             </div>
-            <span class="tc-num">#02</span>
           </div>
-          <h3 class="tc-role">Program Manager II, Engineering</h3>
-          <p class="tc-company">Microsoft</p>
-          <p class="tc-desc">Led cross-functional engineering initiatives across Microsoft product lines, coordinating between engineering, design, and business stakeholders.</p>
-        </article>
+        </div>
       </div>
+    </section>
 
-      <!-- Entry 3 -->
-      <div class="tl-entry reveal from-left">
-        <article class="tl-card glass" aria-label="Technical Data Analytics at Intel">
-          <div class="tc-top">
-            <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">INTEL</span></div>
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="experience" class="experience-section" role="region" aria-label="Work Experience Timeline">
+      <div class="container">
+        <p class="section-eyebrow">Career Journey</p>
+        <h2 class="section-heading">A Career Built Across Industry Giants</h2>
+        <div class="timeline" role="list" aria-label="Work experience timeline">
+
+          <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Xbox Technical Program Manager at Microsoft">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-logos">
+              <img src="assets/logos/microsoft.svg" alt="Microsoft" class="company-logo card-logo" loading="lazy" decoding="async" width="100" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span>
+              <img src="assets/logos/xbox.svg" alt="Xbox" class="company-logo card-logo" loading="lazy" decoding="async" width="60" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Xbox</span>
             </div>
-            <span class="tc-num">#03</span>
-          </div>
-          <h3 class="tc-role">Technical Data Analytics</h3>
-          <p class="tc-company">Intel</p>
-          <p class="tc-desc">Applied advanced data analytics to optimize technical processes and inform engineering decisions at scale within Intel's semiconductor ecosystem.</p>
-        </article>
-      </div>
+            <span class="timeline-badge">Current</span>
+            <h3 class="timeline-role">Xbox Technical Program Manager</h3>
+            <p class="timeline-company">Microsoft</p>
+            <p class="timeline-desc">Driving Xbox engineering programs and technical initiatives impacting millions of global users. Leading cross-org alignment across Xbox hardware, software, and platform teams.</p>
+          </article>
 
-      <!-- Entry 4 -->
-      <div class="tl-entry reveal from-right">
-        <article class="tl-card glass" aria-label="Technical Project Management at Dell Technologies">
-          <div class="tc-top">
-            <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell Technologies" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">DELL</span></div>
+          <article class="timeline-card glass-card timeline-right reveal-right" role="listitem" aria-label="Program Manager II at Microsoft">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-logos">
+              <img src="assets/logos/microsoft.svg" alt="Microsoft" class="company-logo card-logo" loading="lazy" decoding="async" width="100" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Microsoft</span>
             </div>
-            <span class="tc-num">#04</span>
-          </div>
-          <h3 class="tc-role">Technical Project Management</h3>
-          <p class="tc-company">Dell Technologies</p>
-          <p class="tc-desc">Managed complex technology projects from inception to delivery, coordinating hardware and software teams across Dell's enterprise product lines.</p>
-        </article>
-      </div>
+            <h3 class="timeline-role">Program Manager II, Engineering</h3>
+            <p class="timeline-company">Microsoft</p>
+            <p class="timeline-desc">Led cross-functional engineering initiatives across Microsoft product lines, coordinating between engineering, design, and business stakeholders.</p>
+          </article>
 
-      <!-- Entry 5 -->
-      <div class="tl-entry reveal from-left">
-        <article class="tl-card glass" aria-label="Technical Project Management at Boeing">
-          <div class="tc-top">
-            <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://www.vectorlogo.zone/logos/boeing/boeing-ar21.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
+          <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Technical Data Analytics at Intel">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-logos">
+              <img src="assets/logos/intel.svg" alt="Intel" class="company-logo card-logo" loading="lazy" decoding="async" width="80" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Intel</span>
             </div>
-            <span class="tc-num">#05</span>
-          </div>
-          <h3 class="tc-role">Technical Project Management</h3>
-          <p class="tc-company">Boeing</p>
-          <p class="tc-desc">Coordinated engineering projects in one of the world's most demanding and regulated technical environments, ensuring delivery precision and compliance.</p>
-        </article>
-      </div>
+            <h3 class="timeline-role">Technical Data Analytics</h3>
+            <p class="timeline-company">Intel</p>
+            <p class="timeline-desc">Applied advanced data analytics to optimize technical processes and inform engineering decisions at scale within Intel's semiconductor ecosystem.</p>
+          </article>
 
-      <!-- Entry 6 -->
-      <div class="tl-entry reveal from-right">
-        <article class="tl-card glass" aria-label="Enterprise Data Management at Eaton">
-          <div class="tc-top">
-            <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/eaton-6.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
+          <article class="timeline-card glass-card timeline-right reveal-right" role="listitem" aria-label="Technical Project Management at Dell Technologies">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-logos">
+              <img src="assets/logos/dell.png" alt="Dell Technologies" class="company-logo card-logo" loading="lazy" decoding="async" width="90" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Dell</span>
             </div>
-            <span class="tc-num">#06</span>
-          </div>
-          <h3 class="tc-role">Enterprise Data Management</h3>
-          <p class="tc-company">Eaton</p>
-          <p class="tc-desc">Built and maintained enterprise-scale data systems supporting Eaton's global power management operations and business intelligence.</p>
-        </article>
-      </div>
+            <h3 class="timeline-role">Technical Project Management</h3>
+            <p class="timeline-company">Dell Technologies</p>
+            <p class="timeline-desc">Managed complex technology projects from inception to delivery, coordinating hardware and software teams across Dell's enterprise product lines.</p>
+          </article>
 
-      <!-- Entry 7 -->
-      <div class="tl-entry reveal from-left">
-        <article class="tl-card glass" aria-label="Systems Engineering at General Electric">
-          <div class="tc-top">
-            <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/General_Electric_logo.svg" alt="General Electric" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">GE</span></div>
+          <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Technical Project Management at Boeing">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-logos">
+              <img src="assets/logos/boeing.svg" alt="Boeing" class="company-logo card-logo" loading="lazy" decoding="async" width="100" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Boeing</span>
             </div>
-            <span class="tc-num">#07</span>
-          </div>
-          <h3 class="tc-role">Systems Engineering</h3>
-          <p class="tc-company">General Electric</p>
-          <p class="tc-desc">Applied systems engineering principles to complex industrial challenges at one of America's most storied technology companies.</p>
-        </article>
-      </div>
+            <h3 class="timeline-role">Technical Project Management</h3>
+            <p class="timeline-company">Boeing</p>
+            <p class="timeline-desc">Coordinated engineering projects in one of the world's most demanding and regulated technical environments, ensuring delivery precision and compliance.</p>
+          </article>
 
-      <!-- Entry 8 -->
-      <div class="tl-entry reveal from-right">
-        <article class="tl-card glass" aria-label="Database Project Management at Johnson and Johnson">
-          <div class="tc-top">
-            <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/johnson-johnson-1.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
+          <article class="timeline-card glass-card timeline-right reveal-right" role="listitem" aria-label="Enterprise Data Management at Eaton">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-logos">
+              <img src="assets/logos/eaton.svg" alt="Eaton" class="company-logo card-logo" loading="lazy" decoding="async" width="80" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Eaton</span>
             </div>
-            <span class="tc-num">#08</span>
-          </div>
-          <h3 class="tc-role">Database Project Management</h3>
-          <p class="tc-company">Johnson &amp; Johnson</p>
-          <p class="tc-desc">Delivered database solutions and managed data projects within J&amp;J's highly regulated healthcare and consumer products environment.</p>
-        </article>
-      </div>
+            <h3 class="timeline-role">Enterprise Data Management</h3>
+            <p class="timeline-company">Eaton</p>
+            <p class="timeline-desc">Built and maintained enterprise-scale data systems supporting Eaton's global power management operations and business intelligence.</p>
+          </article>
 
-      <!-- Entry 9 -->
-      <div class="tl-entry reveal from-left">
-        <article class="tl-card glass" aria-label="Electrical Engineer at Emerson">
-          <div class="tc-top">
-            <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/emerson-electric.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
+          <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Systems Engineering at General Electric">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-logos">
+              <img src="assets/logos/ge.svg" alt="General Electric" class="company-logo card-logo" loading="lazy" decoding="async" width="60" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">GE</span>
             </div>
-            <span class="tc-num">#09 &mdash; Origin</span>
+            <h3 class="timeline-role">Systems Engineering</h3>
+            <p class="timeline-company">General Electric</p>
+            <p class="timeline-desc">Applied systems engineering principles to complex industrial challenges at one of America's most storied technology companies.</p>
+          </article>
+
+          <article class="timeline-card glass-card timeline-right reveal-right" role="listitem" aria-label="Database Project Management at Johnson and Johnson">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-logos">
+              <img src="assets/logos/jj.svg" alt="Johnson and Johnson" class="company-logo card-logo" loading="lazy" decoding="async" width="110" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">J&amp;J</span>
+            </div>
+            <h3 class="timeline-role">Database Project Management</h3>
+            <p class="timeline-company">Johnson &amp; Johnson</p>
+            <p class="timeline-desc">Delivered database solutions and managed data projects within J&amp;J's highly regulated healthcare and consumer products environment.</p>
+          </article>
+
+          <article class="timeline-card glass-card timeline-left reveal-left" role="listitem" aria-label="Electrical Engineer at Emerson">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-logos">
+              <img src="assets/logos/emerson.svg" alt="Emerson" class="company-logo card-logo" loading="lazy" decoding="async" width="100" height="30" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"/><span class="logo-text-fallback">Emerson</span>
+            </div>
+            <h3 class="timeline-role">Electrical Engineer</h3>
+            <p class="timeline-company">Emerson</p>
+            <p class="timeline-desc">Began engineering career applying electrical engineering fundamentals to real-world industrial automation and control systems.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="skills" class="skills-section" role="region" aria-label="Skills and Expertise">
+      <div class="container">
+        <p class="section-eyebrow">Expertise</p>
+        <h2 class="section-heading">Skills Forged Across 9 Companies</h2>
+        <div class="skills-grid" role="list" aria-label="Skill categories">
+          <article class="skill-card glass-card reveal" role="listitem" aria-label="Program Management skills">
+            <div class="skill-icon" aria-hidden="true"><i class="fa-solid fa-folder-open"></i></div>
+            <h3 class="skill-title">Program Management</h3>
+            <div class="skill-tags" role="list" aria-label="Program management skills">
+              <span class="skill-tag" role="listitem">Agile</span>
+              <span class="skill-tag" role="listitem">Scrum</span>
+              <span class="skill-tag" role="listitem">PMP Methodologies</span>
+              <span class="skill-tag" role="listitem">Roadmapping</span>
+              <span class="skill-tag" role="listitem">Stakeholder Management</span>
+              <span class="skill-tag" role="listitem">Risk Management</span>
+              <span class="skill-tag" role="listitem">OKRs</span>
+            </div>
+          </article>
+          <article class="skill-card glass-card reveal" role="listitem" aria-label="Systems Engineering skills">
+            <div class="skill-icon" aria-hidden="true"><i class="fa-solid fa-gear"></i></div>
+            <h3 class="skill-title">Systems Engineering</h3>
+            <div class="skill-tags" role="list" aria-label="Systems engineering skills">
+              <span class="skill-tag" role="listitem">Systems Architecture</span>
+              <span class="skill-tag" role="listitem">Requirements Engineering</span>
+              <span class="skill-tag" role="listitem">Integration &amp; Testing</span>
+              <span class="skill-tag" role="listitem">MBSE</span>
+              <span class="skill-tag" role="listitem">Technical Documentation</span>
+            </div>
+          </article>
+          <article class="skill-card glass-card reveal" role="listitem" aria-label="Technical Leadership skills">
+            <div class="skill-icon" aria-hidden="true"><i class="fa-solid fa-medal"></i></div>
+            <h3 class="skill-title">Technical Leadership</h3>
+            <div class="skill-tags" role="list" aria-label="Technical leadership skills">
+              <span class="skill-tag" role="listitem">Cross-functional Leadership</span>
+              <span class="skill-tag" role="listitem">Executive Communication</span>
+              <span class="skill-tag" role="listitem">Strategic Planning</span>
+              <span class="skill-tag" role="listitem">Executive Briefings</span>
+            </div>
+          </article>
+          <article class="skill-card glass-card reveal" role="listitem" aria-label="Data and Analytics skills">
+            <div class="skill-icon" aria-hidden="true"><i class="fa-solid fa-chart-bar"></i></div>
+            <h3 class="skill-title">Data &amp; Analytics</h3>
+            <div class="skill-tags" role="list" aria-label="Data and analytics skills">
+              <span class="skill-tag" role="listitem">Technical Data Analytics</span>
+              <span class="skill-tag" role="listitem">Enterprise Data Management</span>
+              <span class="skill-tag" role="listitem">Database Systems</span>
+              <span class="skill-tag" role="listitem">BI Tools</span>
+              <span class="skill-tag" role="listitem">SQL</span>
+            </div>
+          </article>
+          <article class="skill-card glass-card reveal" role="listitem" aria-label="Engineering Foundation skills">
+            <div class="skill-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
+            <h3 class="skill-title">Engineering Foundation</h3>
+            <div class="skill-tags" role="list" aria-label="Engineering foundation skills">
+              <span class="skill-tag" role="listitem">BIS Degree</span>
+              <span class="skill-tag" role="listitem">Information Systems</span>
+              <span class="skill-tag" role="listitem">Industrial Systems</span>
+              <span class="skill-tag" role="listitem">Controls</span>
+              <span class="skill-tag" role="listitem">Signal Systems</span>
+            </div>
+          </article>
+          <article class="skill-card glass-card reveal" role="listitem" aria-label="Content and Influence skills">
+            <div class="skill-icon" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3 class="skill-title">Content &amp; Influence</h3>
+            <div class="skill-tags" role="list" aria-label="Content and influence skills">
+              <span class="skill-tag" role="listitem">LinkedIn Thought Leadership</span>
+              <span class="skill-tag" role="listitem">Technical Writing</span>
+              <span class="skill-tag" role="listitem">Community Building</span>
+              <span class="skill-tag" role="listitem">Personal Branding</span>
+              <span class="skill-tag" role="listitem">Mentorship</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="content" class="content-section" role="region" aria-label="Content and Influence">
+      <div class="container">
+        <p class="section-eyebrow">Thought Leadership</p>
+        <h2 class="section-heading">Join the Conversation</h2>
+        <p class="section-subhead">I share unfiltered insights from inside Big Tech &mdash; for engineers, aspiring PMs, and anyone navigating the tech industry.</p>
+        <div class="content-pillars" role="list" aria-label="Content pillars">
+          <article class="pillar-card glass-card reveal" role="listitem" aria-label="Career Navigation content pillar">
+            <div class="pillar-icon" aria-hidden="true">&#127919;</div>
+            <h3>Career Navigation</h3>
+            <p>How to break into and grow within top tech companies. Real advice from someone who's done it at 9 of the world's best.</p>
+          </article>
+          <article class="pillar-card glass-card reveal" role="listitem" aria-label="Engineering Insights content pillar">
+            <div class="pillar-icon" aria-hidden="true">&#9881;</div>
+            <h3>Engineering Insights</h3>
+            <p>Technical concepts from BIS to TPM &mdash; explained clearly for real-world application and career growth.</p>
+          </article>
+          <article class="pillar-card glass-card reveal" role="listitem" aria-label="Leadership and Strategy content pillar">
+            <div class="pillar-icon" aria-hidden="true">&#128640;</div>
+            <h3>Leadership &amp; Strategy</h3>
+            <p>What it actually takes to lead technical programs at scale inside companies like Microsoft, Boeing, and Intel.</p>
+          </article>
+        </div>
+        <div class="content-cta">
+          <a href="https://www.linkedin.com/in/damarcuslett/" class="btn-primary btn-magnetic linkedin-cta" target="_blank" rel="noopener noreferrer" aria-label="Follow Damarcus Lett on LinkedIn">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i> Follow on LinkedIn
+          </a>
+        </div>
+        <div class="newsletter-form-container glass-card reveal">
+          <h3>Stay in the Loop</h3>
+          <p>Get notified when I launch new content, guides, and resources.</p>
+          <form id="newsletter-form" class="newsletter-form" novalidate aria-label="Newsletter signup form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="newsletter-name">Your Name</label>
+                <input type="text" id="newsletter-name" name="name" placeholder="First name" autocomplete="given-name" required aria-required="true" />
+              </div>
+              <div class="form-group">
+                <label for="newsletter-email">Email Address</label>
+                <input type="email" id="newsletter-email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
+              </div>
+            </div>
+            <button type="submit" class="btn-primary btn-magnetic" aria-label="Subscribe to Damarcus Lett's newsletter">Notify Me When I Launch &#128640;</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="contact" class="contact-section" role="region" aria-label="Contact Damarcus Lett">
+      <div class="container">
+        <p class="section-eyebrow">Get In Touch</p>
+        <h2 class="section-heading">Let's Build Something Together</h2>
+        <p class="section-subhead">Whether it's collaboration, speaking opportunities, mentorship, or just a good conversation about tech &mdash; I'm here.</p>
+        <div class="contact-cards" role="list" aria-label="Contact options">
+          <article class="contact-card glass-card reveal" role="listitem" aria-label="LinkedIn contact option">
+            <div class="contact-icon" aria-hidden="true"><i class="fa-brands fa-linkedin"></i></div>
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Damarcus Lett on LinkedIn">Connect on LinkedIn</a>
+          </article>
+          <article class="contact-card glass-card reveal" role="listitem" aria-label="Location information">
+            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+            <h3>Location</h3>
+            <p>Greater Seattle, WA Area</p>
+          </article>
+          <article class="contact-card glass-card reveal" role="listitem" aria-label="Open to opportunities">
+            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
+            <h3>Open To</h3>
+            <p>Speaking &bull; Mentorship &bull; Collaboration</p>
+          </article>
+        </div>
+        <form id="contact-form" class="contact-form glass-card" novalidate aria-label="Contact form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your full name" autocomplete="name" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
+            </div>
           </div>
-          <h3 class="tc-role">Electrical Engineer</h3>
-          <p class="tc-company">Emerson</p>
-          <p class="tc-desc">Began engineering career applying electrical engineering fundamentals to real-world industrial automation and control systems.</p>
-        </article>
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <select id="contact-subject" name="subject" required aria-required="true">
+              <option value="" disabled selected>Select a topic</option>
+              <option value="general">General Inquiry</option>
+              <option value="speaking">Speaking Request</option>
+              <option value="mentorship">Mentorship</option>
+              <option value="collaboration">Collaboration</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your project or how I can help..." required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-magnetic" aria-label="Send message to Damarcus Lett">Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
       </div>
+    </section>
 
-    </div><!-- /timeline -->
-  </div>
-</section>
+  </main>
 
-<!-- ================================================================
-     SKILLS
-================================================================ -->
-<section id="skills" aria-labelledby="skills-h">
-  <div class="container">
-    <div class="skills-header">
-      <span class="section-eyebrow reveal">Expertise</span>
-      <h2 class="section-title reveal" id="skills-h">Skills Forged Across 9 Companies</h2>
-      <p class="section-sub reveal">A decade of real-world engineering and leadership — not just bullet points.</p>
-    </div>
-
-    <div class="skills-grid">
-      <div class="skill-card glass glass-hover reveal">
-        <div class="sk-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
-        <h3 class="sk-name">Program Management</h3>
-        <div class="sk-tags">
-          <span class="sk-tag">Agile</span><span class="sk-tag">Scrum</span>
-          <span class="sk-tag">PMP Methodologies</span><span class="sk-tag">Roadmapping</span>
-          <span class="sk-tag">Stakeholder Mgmt</span><span class="sk-tag">Risk Management</span>
-          <span class="sk-tag">OKRs</span>
-        </div>
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span class="logo-monogram" aria-hidden="true">DL</span>
+        <span class="footer-name">Damarcus Lett</span>
       </div>
-
-      <div class="skill-card glass glass-hover reveal">
-        <div class="sk-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
-        <h3 class="sk-name">Systems Engineering</h3>
-        <div class="sk-tags">
-          <span class="sk-tag">Systems Architecture</span><span class="sk-tag">Requirements Eng.</span>
-          <span class="sk-tag">Integration &amp; Testing</span><span class="sk-tag">MBSE</span>
-          <span class="sk-tag">Technical Docs</span>
-        </div>
-      </div>
-
-      <div class="skill-card glass glass-hover reveal">
-        <div class="sk-icon"><i class="fa-solid fa-medal" aria-hidden="true"></i></div>
-        <h3 class="sk-name">Technical Leadership</h3>
-        <div class="sk-tags">
-          <span class="sk-tag">Cross-functional Teams</span><span class="sk-tag">Executive Comms</span>
-          <span class="sk-tag">Strategic Planning</span><span class="sk-tag">Executive Briefings</span>
-        </div>
-      </div>
-
-      <div class="skill-card glass glass-hover reveal">
-        <div class="sk-icon"><i class="fa-solid fa-chart-bar" aria-hidden="true"></i></div>
-        <h3 class="sk-name">Data &amp; Analytics</h3>
-        <div class="sk-tags">
-          <span class="sk-tag">Technical Analytics</span><span class="sk-tag">Enterprise Data Mgmt</span>
-          <span class="sk-tag">Database Systems</span><span class="sk-tag">BI Tools</span>
-          <span class="sk-tag">SQL</span>
-        </div>
-      </div>
-
-      <div class="skill-card glass glass-hover reveal">
-        <div class="sk-icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
-        <h3 class="sk-name">Engineering Foundation</h3>
-        <div class="sk-tags">
-          <span class="sk-tag">Electrical Engineering</span><span class="sk-tag">Circuit Design</span>
-          <span class="sk-tag">Industrial Systems</span><span class="sk-tag">Controls</span>
-          <span class="sk-tag">Signal Systems</span>
-        </div>
-      </div>
-
-      <div class="skill-card glass glass-hover reveal">
-        <div class="sk-icon"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></div>
-        <h3 class="sk-name">Content &amp; Influence</h3>
-        <div class="sk-tags">
-          <span class="sk-tag">LinkedIn Leadership</span><span class="sk-tag">Technical Writing</span>
-          <span class="sk-tag">Community Building</span><span class="sk-tag">Personal Branding</span>
-          <span class="sk-tag">Mentorship</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     CONTENT / INFLUENCE
-================================================================ -->
-<section id="content" aria-labelledby="content-h">
-  <div class="container">
-    <div class="content-header">
-      <span class="section-eyebrow reveal">Thought Leadership</span>
-      <h2 class="section-title reveal" id="content-h">Join the Conversation</h2>
-      <p class="section-sub reveal">I share unfiltered insights from inside Big Tech — for engineers, aspiring PMs, and anyone navigating the tech industry.</p>
-    </div>
-
-    <div class="pillars">
-      <div class="pillar glass glass-hover reveal">
-        <div class="pillar-icon-wrap" aria-hidden="true">&#127919;</div>
-        <h3 class="pillar-title">Career Navigation</h3>
-        <p class="pillar-desc">How to break into and grow within top tech companies. Real advice from someone who's done it at 9 of the world's best.</p>
-      </div>
-      <div class="pillar glass glass-hover reveal">
-        <div class="pillar-icon-wrap" aria-hidden="true">&#9881;&#65039;</div>
-        <h3 class="pillar-title">Engineering Insights</h3>
-        <p class="pillar-desc">Technical concepts from EE to TPM — explained clearly for real-world application and career growth.</p>
-      </div>
-      <div class="pillar glass glass-hover reveal">
-        <div class="pillar-icon-wrap" aria-hidden="true">&#128640;</div>
-        <h3 class="pillar-title">Leadership &amp; Strategy</h3>
-        <p class="pillar-desc">What it actually takes to lead technical programs at scale inside companies like Microsoft, Boeing, and Intel.</p>
-      </div>
-    </div>
-
-    <div class="content-cta-area reveal">
-      <a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin" aria-label="Follow Damarcus Lett on LinkedIn">
-        <i class="fa-brands fa-linkedin" aria-hidden="true"></i> Follow on LinkedIn
-      </a>
-    </div>
-
-    <div class="newsletter-box reveal">
-      <h3>Stay in the Loop</h3>
-      <p>Get notified when I launch my newsletter — real talk from inside Big Tech.</p>
-      <form class="nl-form" id="nl-form" novalidate>
-        <div class="nl-row">
-          <input type="text"  class="field" placeholder="Your Name"  aria-label="Your name"          required />
-          <input type="email" class="field" placeholder="Your Email" aria-label="Your email address" required />
-        </div>
-        <button type="submit" class="btn btn-primary" style="justify-content:center;" aria-label="Subscribe to newsletter">
-          <i class="fa-solid fa-bell" aria-hidden="true"></i> Notify Me When I Launch
-        </button>
-        <div class="success-msg" id="nl-success" role="status">
-          <i class="fa-solid fa-circle-check" style="font-size:22px;color:#34D399;" aria-hidden="true"></i>
-          You're on the list! &#128640;
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     CONTACT
-================================================================ -->
-<section id="contact" aria-labelledby="contact-h">
-  <div class="container">
-    <div class="contact-header">
-      <span class="section-eyebrow reveal">Get In Touch</span>
-      <h2 class="section-title reveal" id="contact-h">Let's Build Something Together</h2>
-      <p class="section-sub reveal">Whether it's collaboration, speaking opportunities, mentorship, or just a good conversation about tech — I'm here.</p>
-    </div>
-
-    <div class="contact-cards">
-      <div class="cc glass reveal">
-        <div class="cc-icon"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></div>
-        <h3>LinkedIn</h3>
-        <p><a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Damarcus Lett on LinkedIn">Connect on LinkedIn</a></p>
-      </div>
-      <div class="cc glass reveal">
-        <div class="cc-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
-        <h3>Location</h3>
-        <p>Greater Seattle, WA Area</p>
-      </div>
-      <div class="cc glass reveal">
-        <div class="cc-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
-        <h3>Open To</h3>
-        <p>Speaking &bull; Mentorship &bull; Collaboration</p>
-      </div>
-    </div>
-
-    <div class="contact-form-wrap reveal">
-      <form class="cf" id="cf" novalidate>
-        <div class="cf-row">
-          <input type="text"  class="field" placeholder="Your Name"  aria-label="Your name"          required />
-          <input type="email" class="field" placeholder="Your Email" aria-label="Your email address" required />
-        </div>
-        <select class="field field-select" aria-label="Subject" required>
-          <option value="" disabled selected>Select a Subject</option>
-          <option value="general">General Inquiry</option>
-          <option value="speaking">Speaking Request</option>
-          <option value="mentorship">Mentorship</option>
-          <option value="collab">Collaboration</option>
-        </select>
-        <textarea class="field field-textarea" placeholder="Your message..." aria-label="Your message" required></textarea>
-        <button type="submit" class="btn btn-primary" style="justify-content:center;" aria-label="Send message">
-          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Message
-        </button>
-        <div class="success-msg" id="cf-success" role="status">
-          <i class="fa-solid fa-circle-check" style="font-size:24px;color:#34D399;" aria-hidden="true"></i>
-          Message received! I'll be in touch soon.
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     FOOTER
-================================================================ -->
-<footer role="contentinfo">
-  <div class="container footer-inner">
-    <div class="footer-logo">
-      <div class="footer-badge" aria-hidden="true">DL</div>
-    </div>
-    <p class="footer-copy">&copy; 2025 <strong>Damarcus Lett</strong> &middot; Built with purpose &middot; All rights reserved</p>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn — Damarcus Lett">
+      <p class="footer-copy">&copy; 2025 Damarcus Lett &middot; Built with purpose &middot; All rights reserved</p>
+      <a href="https://www.linkedin.com/in/damarcuslett/" class="footer-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Connect with Damarcus Lett on LinkedIn">
         <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
       </a>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- ================================================================
-     JAVASCRIPT
-================================================================ -->
-<script>
-'use strict';
-
-/* ----------------------------------------------------------------
-   CUSTOM CURSOR
----------------------------------------------------------------- */
-(function () {
-  if (!window.matchMedia('(hover: hover)').matches) return;
-  const dot  = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  let rx = 0, ry = 0, dx = 0, dy = 0;
-
-  document.addEventListener('mousemove', e => {
-    dx = e.clientX; dy = e.clientY;
-    dot.style.left  = dx + 'px';
-    dot.style.top   = dy + 'px';
-  });
-
-  // ring lags behind
-  (function animRing() {
-    rx += (dx - rx) * 0.12;
-    ry += (dy - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(animRing);
-  })();
-
-  document.querySelectorAll('a, button, .btn, .glass-hover, .sk-tag, .mq-logo').forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-  });
-})();
-
-/* ----------------------------------------------------------------
-   SCROLL PROGRESS BAR
----------------------------------------------------------------- */
-(function () {
-  const bar = document.getElementById('progress-bar');
-  function update() {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = (window.scrollY / max * 100).toFixed(2) + '%';
-  }
-  window.addEventListener('scroll', update, { passive: true });
-})();
-
-/* ----------------------------------------------------------------
-   PARTICLE CANVAS
----------------------------------------------------------------- */
-(function () {
-  const cv  = document.getElementById('particle-canvas');
-  const ctx = cv.getContext('2d');
-  const NUM = 80, MAX_DIST = 120;
-  let W, H, pts;
-
-  function resize() {
-    W = cv.width  = cv.offsetWidth;
-    H = cv.height = cv.offsetHeight;
-  }
-
-  function rand(a, b) { return Math.random() * (b - a) + a; }
-
-  function init() {
-    resize();
-    pts = Array.from({ length: NUM }, () => ({
-      x: rand(0, W), y: rand(0, H),
-      vx: rand(-0.3, 0.3), vy: rand(-0.3, 0.3),
-      r: rand(1, 2.5),
-      a: rand(0.3, 0.8),
-      c: ['rgba(37,99,235,','rgba(96,165,250,','rgba(29,78,216,'][Math.floor(Math.random()*3)]
-    }));
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    for (let i = 0; i < NUM; i++) {
-      for (let j = i + 1; j < NUM; j++) {
-        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-        const d  = Math.sqrt(dx*dx + dy*dy);
-        if (d < MAX_DIST) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(37,99,235,${(1 - d/MAX_DIST) * 0.14})`;
-          ctx.lineWidth = 0.8;
-          ctx.moveTo(pts[i].x, pts[i].y);
-          ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-    pts.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.c + p.a + ')';
-      ctx.fill();
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > W) p.vx *= -1;
-      if (p.y < 0 || p.y > H) p.vy *= -1;
-    });
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', () => { resize(); });
-  init(); draw();
-})();
-
-/* ----------------------------------------------------------------
-   TYPING ANIMATION
----------------------------------------------------------------- */
-(function () {
-  const el = document.getElementById('typed');
-  const titles = ['Program Manager', 'Systems Engineer', 'Tech Influencer', 'Industry Voice'];
-  let ti = 0, ci = 0, del = false;
-  const TSPD = 85, DSPD = 50, PAUSE = 1800, GAP = 350;
-
-  function tick() {
-    const cur = titles[ti];
-    if (!del) {
-      el.textContent = cur.slice(0, ++ci);
-      if (ci === cur.length) { del = true; setTimeout(tick, PAUSE); return; }
-    } else {
-      el.textContent = cur.slice(0, --ci);
-      if (ci === 0) { del = false; ti = (ti + 1) % titles.length; setTimeout(tick, GAP); return; }
-    }
-    setTimeout(tick, del ? DSPD : TSPD);
-  }
-  setTimeout(tick, 900);
-})();
-
-/* ----------------------------------------------------------------
-   NAVBAR — SCROLL + ACTIVE LINK
----------------------------------------------------------------- */
-(function () {
-  const nav   = document.getElementById('nav');
-  const links = nav.querySelectorAll('.nav-links a:not(.nav-cta)');
-  const secs  = document.querySelectorAll('section[id]');
-
-  function onScroll() {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-    let cur = '';
-    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 110) cur = s.id; });
-    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-})();
-
-/* ----------------------------------------------------------------
-   HAMBURGER
----------------------------------------------------------------- */
-(function () {
-  const btn     = document.getElementById('hamburger');
-  const menu    = document.getElementById('mob-menu');
-  const overlay = document.getElementById('mob-overlay');
-  const links   = document.querySelectorAll('.mob-link');
-
-  function close() {
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-    menu.classList.remove('open');
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function open() {
-    btn.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-    menu.classList.add('open');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  btn.addEventListener('click', () => menu.classList.contains('open') ? close() : open());
-  overlay.addEventListener('click', close);
-  links.forEach(l => l.addEventListener('click', close));
-})();
-
-/* ----------------------------------------------------------------
-   INTERSECTION OBSERVER — REVEAL + STAT COUNTERS + TIMELINE FILL
----------------------------------------------------------------- */
-(function () {
-  // Reveal elements
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        revealObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-  // Stagger skill cards
-  document.querySelectorAll('.skills-grid .skill-card').forEach((card, i) => {
-    card.style.transitionDelay = (i * 90) + 'ms';
-  });
-
-  // Animated stat counters
-  function animateCount(el) {
-    const target = +el.dataset.count;
-    const suffix = el.dataset.suffix || '';
-    const dur    = 1800;
-    const start  = performance.now();
-    (function step(now) {
-      const t   = Math.min((now - start) / dur, 1);
-      const ease = 1 - Math.pow(1 - t, 3);
-      el.textContent = Math.round(ease * target) + suffix;
-      if (t < 1) requestAnimationFrame(step);
-    })(performance.now());
-  }
-  const statObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting && e.target.dataset.count) {
-        animateCount(e.target);
-        statObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('[data-count]').forEach(el => statObs.observe(el));
-
-  // Timeline fill on scroll
-  const tlLine   = document.getElementById('tl-fill');
-  const tlParent = tlLine ? tlLine.closest('.timeline') : null;
-  if (tlParent) {
-    window.addEventListener('scroll', () => {
-      const rect = tlParent.getBoundingClientRect();
-      const visible = Math.max(0, Math.min(window.innerHeight - rect.top, rect.height));
-      tlLine.style.height = Math.min(100, visible / rect.height * 100) + '%';
-    }, { passive: true });
-  }
-})();
-
-/* ----------------------------------------------------------------
-   NEWSLETTER FORM
----------------------------------------------------------------- */
-document.getElementById('nl-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('button[type="submit"]');
-  btn.style.display = 'none';
-  document.getElementById('nl-success').style.display = 'flex';
-});
-
-/* ----------------------------------------------------------------
-   CONTACT FORM
----------------------------------------------------------------- */
-document.getElementById('cf').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('button[type="submit"]');
-  btn.style.display = 'none';
-  document.getElementById('cf-success').style.display = 'flex';
-});
-
-</script>
 </body>
 </html>
