@@ -6,7 +6,7 @@
   <title>Damarcus Lett | Tech Leader &amp; Engineer</title>
 
   <!-- SEO -->
-  <meta name="description" content="Damarcus Lett — Technical Program Manager at Microsoft (Xbox), Electrical Engineer, and Tech Thought Leader. 10+ years across 9 iconic companies." />
+  <meta name="description" content="Damarcus Lett — Technical Program Manager at Microsoft (Xbox), Business Information Systems graduate, and Tech Thought Leader. 10+ years across 9 iconic companies." />
   <meta name="keywords" content="Damarcus Lett, Technical Program Manager, Microsoft, Xbox, Engineer, TPM, Tech Influencer, Seattle" />
   <meta name="author" content="Damarcus Lett" />
   <meta name="robots" content="index, follow" />
@@ -756,13 +756,28 @@
     0%,100% { opacity: 0.4; }
     50% { opacity: 0.1; }
   }
+  .pc-photo {
+    position: relative; z-index: 1;
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    border: 3px solid rgba(37,99,235,0.55);
+    object-fit: cover;
+    margin-bottom: 22px;
+    box-shadow: 0 0 0 6px rgba(37,99,235,0.12), 0 0 40px rgba(37,99,235,0.35);
+    transition: transform 0.4s var(--spring), box-shadow 0.4s;
+  }
+  .profile-card:hover .pc-photo {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(37,99,235,0.18), 0 0 56px rgba(37,99,235,0.5);
+  }
+  /* fallback monogram if photo fails */
   .pc-monogram {
     position: relative; z-index: 1;
-    width: 100px; height: 100px;
+    width: 110px; height: 110px;
     background: linear-gradient(135deg, rgba(37,99,235,0.3) 0%, rgba(37,99,235,0.08) 100%);
     border: 2px solid rgba(37,99,235,0.4);
-    border-radius: 28px;
-    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    display: none; align-items: center; justify-content: center;
     font-size: 42px; font-weight: 800;
     margin-bottom: 22px;
     box-shadow: 0 0 40px rgba(37,99,235,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
@@ -1179,7 +1194,7 @@
 
   <div class="hero-content">
     <p class="hero-eyebrow">
-      Technical Program Manager&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;Engineer&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;Thought Leader
+      Technical Program Manager&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;Tech Leader&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;Thought Leader
     </p>
 
     <h1 class="hero-name">
@@ -1224,7 +1239,7 @@
       </div>
       <div class="stat-item" role="listitem">
         <div>
-          <div class="stat-num" style="-webkit-text-fill-color:var(--blue-glow); background:none; color:var(--blue-glow); font-size:18px;">EE<br>Background</div>
+          <div class="stat-num" style="-webkit-text-fill-color:var(--blue-glow); background:none; color:var(--blue-glow); font-size:18px;">BIS<br>Degree</div>
         </div>
       </div>
     </div>
@@ -1251,13 +1266,13 @@
         <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg" alt="Xbox" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">XBOX</span></div>
         <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">INTEL</span></div>
         <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell Technologies" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">DELL</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Boeing_full_logo.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
+        <div class="mq-logo"><img src="https://www.vectorlogo.zone/logos/boeing/boeing-ar21.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
         <!-- set 2 (duplicate for seamless loop) -->
         <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">MICROSOFT</span></div>
         <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg" alt="Xbox" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">XBOX</span></div>
         <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">INTEL</span></div>
         <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell Technologies" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">DELL</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Boeing_full_logo.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
+        <div class="mq-logo"><img src="https://www.vectorlogo.zone/logos/boeing/boeing-ar21.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
       </div>
     </div>
 
@@ -1265,15 +1280,15 @@
     <div class="marquee-row">
       <div class="marquee-track" aria-hidden="true">
         <!-- set 1 -->
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Eaton_Corporation_logo.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
+        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/eaton-6.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
         <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/General_Electric_logo.svg" alt="General Electric" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">GE</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Johnson_%26_Johnson_Logo.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Emerson_Electric_Logo.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
+        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/johnson-johnson-1.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
+        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/emerson-electric.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
         <!-- set 2 -->
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Eaton_Corporation_logo.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
+        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/eaton-6.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
         <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/General_Electric_logo.svg" alt="General Electric" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">GE</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Johnson_%26_Johnson_Logo.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
-        <div class="mq-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Emerson_Electric_Logo.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
+        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/johnson-johnson-1.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
+        <div class="mq-logo"><img src="https://cdn.worldvectorlogo.com/logos/emerson-electric.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
       </div>
     </div>
 
@@ -1292,7 +1307,7 @@
         <h2 class="section-title reveal" id="about-h">The Engineer Behind the Brand</h2>
 
         <div class="about-bio reveal">
-          <p>I'm <strong>Damarcus Lett</strong> — an Electrical Engineer turned Technical Program Manager at Microsoft, where I drive Xbox engineering initiatives that reach millions of users worldwide.</p>
+          <p>I'm <strong>Damarcus Lett</strong> — a Business Information Systems graduate turned Technical Program Manager at Microsoft, where I drive Xbox engineering initiatives that reach millions of users worldwide.</p>
           <p>My journey spans GE, Emerson, Johnson &amp; Johnson, Boeing, Dell Technologies, Intel, and now Microsoft. Each stop sharpened my ability to bridge complex technical systems with strategic business outcomes.</p>
           <p>Now I'm on a mission to demystify tech and engineering for the next generation — sharing real stories from inside the world's most iconic companies.</p>
         </div>
@@ -1317,11 +1332,11 @@
           <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg" alt="Xbox" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">XBOX</span></div>
           <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">INTEL</span></div>
           <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell Technologies" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">DELL</span></div>
-          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Boeing_full_logo.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
-          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Eaton_Corporation_logo.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
+          <div class="logo-wrap"><img src="https://www.vectorlogo.zone/logos/boeing/boeing-ar21.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
+          <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/eaton-6.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
           <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/General_Electric_logo.svg" alt="General Electric" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">GE</span></div>
-          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Johnson_%26_Johnson_Logo.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
-          <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Emerson_Electric_Logo.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
+          <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/johnson-johnson-1.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
+          <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/emerson-electric.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
         </div>
       </div>
 
@@ -1332,9 +1347,15 @@
           <div class="pc-ring" aria-hidden="true"></div>
           <div class="pc-ring" aria-hidden="true"></div>
           <div class="pc-ring" aria-hidden="true"></div>
+          <img
+            class="pc-photo"
+            src="https://media.licdn.com/dms/image/v2/D5603AQHmQ68oPf9Ldg/profile-displayphoto-shrink_200_200/B56ZX3S94wGcAk-/0/1743610699720?e=2147483647&v=beta&t=KYFoAAjYXe-dGCLRgKdHIrjj2JStGiMiYFxFENfk5_Y"
+            alt="Damarcus Lett headshot"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
           <div class="pc-monogram" aria-hidden="true">DL</div>
           <p class="pc-name">Damarcus Lett</p>
-          <p class="pc-title">Technical Program Manager II</p>
+          <p class="pc-title">Technical Program Manager</p>
           <div class="pc-badge">
             <div class="logo-wrap">
               <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
@@ -1370,7 +1391,7 @@
 
       <!-- Entry 1 -->
       <div class="tl-entry reveal from-left">
-        <article class="tl-card glass" aria-label="Xbox Technical Program Manager II at Microsoft">
+        <article class="tl-card glass" aria-label="Xbox Technical Program Manager at Microsoft">
           <div class="tc-top">
             <div class="tc-logos">
               <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">MSFT</span></div>
@@ -1378,7 +1399,7 @@
             </div>
             <span class="tc-num">#01 &mdash; Current</span>
           </div>
-          <h3 class="tc-role">Xbox Technical Program Manager II</h3>
+          <h3 class="tc-role">Xbox Technical Program Manager</h3>
           <p class="tc-company">Microsoft</p>
           <p class="tc-desc">Driving Xbox engineering programs and technical initiatives impacting millions of global users. Leading cross-org alignment across Xbox hardware, software, and platform teams.</p>
         </article>
@@ -1434,7 +1455,7 @@
         <article class="tl-card glass" aria-label="Technical Project Management at Boeing">
           <div class="tc-top">
             <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Boeing_full_logo.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
+              <div class="logo-wrap"><img src="https://www.vectorlogo.zone/logos/boeing/boeing-ar21.svg" alt="Boeing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">BOEING</span></div>
             </div>
             <span class="tc-num">#05</span>
           </div>
@@ -1449,7 +1470,7 @@
         <article class="tl-card glass" aria-label="Enterprise Data Management at Eaton">
           <div class="tc-top">
             <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Eaton_Corporation_logo.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
+              <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/eaton-6.svg" alt="Eaton" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EATON</span></div>
             </div>
             <span class="tc-num">#06</span>
           </div>
@@ -1479,7 +1500,7 @@
         <article class="tl-card glass" aria-label="Database Project Management at Johnson and Johnson">
           <div class="tc-top">
             <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Johnson_%26_Johnson_Logo.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
+              <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/johnson-johnson-1.svg" alt="Johnson and Johnson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">J&amp;J</span></div>
             </div>
             <span class="tc-num">#08</span>
           </div>
@@ -1494,7 +1515,7 @@
         <article class="tl-card glass" aria-label="Electrical Engineer at Emerson">
           <div class="tc-top">
             <div class="tc-logos">
-              <div class="logo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Emerson_Electric_Logo.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
+              <div class="logo-wrap"><img src="https://cdn.worldvectorlogo.com/logos/emerson-electric.svg" alt="Emerson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="logo-fb">EMERSON</span></div>
             </div>
             <span class="tc-num">#09 &mdash; Origin</span>
           </div>
