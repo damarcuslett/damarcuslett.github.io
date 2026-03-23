@@ -414,9 +414,9 @@
 
     var phrases = [
       'Program Manager',
-      'Systems Engineer',
       'Tech Influencer',
-      'Industry Voice'
+      'Industry Voice',
+      'Microsoft Leader'
     ];
 
     var currentPhrase = 0;
