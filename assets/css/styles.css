@@ -1187,6 +1187,13 @@ html.light-theme .co-name {
   opacity: 1;
 }
 
+.timeline-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
 .timeline-badge {
   display: inline-block;
   padding: var(--space-1) var(--space-3);
@@ -1198,7 +1205,34 @@ html.light-theme .co-name {
   color: var(--color-blue-light);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  margin-bottom: var(--space-3);
+}
+
+.timeline-badge.badge-professional {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.timeline-badge.badge-internship {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.timeline-meta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.6rem;
+  line-height: 1.5;
+}
+
+.timeline-meta i {
+  font-size: 0.7rem;
+  opacity: 0.75;
 }
 
 .timeline-role {
