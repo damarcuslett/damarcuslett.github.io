@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Center — Authorized Access Only</title>
+
+  <!-- Security: CSP -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             script-src 'self' https://cdnjs.cloudflare.com;
+             style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+             font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+             img-src 'self' data:;
+             frame-ancestors 'none';
+             form-action 'self';" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome (icons only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
+
+  <!-- Admin Styles -->
+  <link rel="stylesheet" href="assets/admin.css" />
+</head>
+<body>
+
+  <!-- Particle canvas background -->
+  <canvas id="login-particles" aria-hidden="true"></canvas>
+  <div class="login-bg" aria-hidden="true"></div>
+
+  <main class="login-wrapper" role="main">
+    <div class="login-card" role="region" aria-label="Command Center login">
+
+      <!-- DL monogram -->
+      <div class="login-monogram" aria-hidden="true">DL</div>
+
+      <h1 class="login-title">Command Center</h1>
+      <p class="login-subtitle">Authorized Access Only</p>
+
+      <!-- Error message -->
+      <div id="login-error" role="alert" aria-live="polite"></div>
+
+      <!-- Lockout banner -->
+      <div id="lockout-banner" role="alert" aria-live="assertive">
+        <span class="lockout-icon">🔒</span>
+        <span>Account locked. Retry in </span>
+        <span id="lockout-timer">15:00</span>
+      </div>
+
+      <form id="login-form" novalidate autocomplete="off" aria-label="Login form">
+
+        <!-- Honeypot (Layer 4) — must NOT be visible to real users -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="dl_trap">Leave this blank</label>
+          <input
+            type="text"
+            id="dl_trap"
+            name="dl_trap"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            autocomplete="off"
+            spellcheck="false"
+            autocorrect="off"
+            autocapitalize="off"
+            required
+            aria-required="true"
+            placeholder="Enter username"
+          />
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="current-password"
+              required
+              aria-required="true"
+              placeholder="Enter password"
+            />
+            <button
+              type="button"
+              id="password-toggle"
+              aria-label="Show password"
+              title="Toggle password visibility"
+            >
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Rate limit warning -->
+        <div id="rate-limit-warning" role="status" aria-live="polite"></div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          id="submit-btn"
+          aria-label="Access Command Center"
+        >
+          Access Command Center
+        </button>
+
+      </form>
+
+      <footer class="login-footer">
+        <span>DL Command Center</span>
+        <span class="dot">·</span>
+        <span>Private &amp; Confidential</span>
+        <span class="dot">·</span>
+        <span>Session expires in 4h</span>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- Auth JS (no defer — must block render for gate check) -->
+  <script src="assets/auth.js"></script>
+
+</body>
+</html>
