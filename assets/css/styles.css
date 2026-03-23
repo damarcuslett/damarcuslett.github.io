@@ -109,7 +109,7 @@ button {
   --color-border-strong: rgba(255, 255, 255, 0.15);
 
   /* Typography */
-  --font-heading: 'Syne', system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --text-hero: clamp(3.5rem, 9vw, 7.5rem);
   --text-5xl: clamp(2.5rem, 5vw, 4rem);
@@ -181,13 +181,10 @@ button {
   font-family: var(--font-heading);
   font-size: var(--text-hero);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-  background: linear-gradient(135deg, #fff 0%, #60A5FA 50%, #fff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 0 60px rgba(96, 165, 250, 0.45), 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .section-heading {
@@ -881,17 +878,53 @@ section {
   min-height: 380px;
 }
 
+.profile-photo-wrap {
+  position: relative;
+  z-index: 2;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--color-blue-primary), var(--color-blue-light));
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.5), 0 0 80px rgba(37, 99, 235, 0.2);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  background: var(--color-bg-card);
+}
+
+.profile-name {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-white);
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  text-align: center;
+}
+
 .profile-monogram {
   font-family: var(--font-heading);
   font-size: 5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-blue-light) 60%, var(--color-white) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-white);
   line-height: 1;
   position: relative;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-blue-primary), var(--color-blue-dark));
 }
 
 .profile-badge {
@@ -1665,9 +1698,8 @@ html.light-theme .hero-section {
 }
 
 html.light-theme .hero-name {
-  background: linear-gradient(135deg, #0f0f1a 0%, var(--color-blue-primary) 50%, #0f0f1a 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: #0f172a;
+  text-shadow: 0 0 40px rgba(37, 99, 235, 0.25), 0 2px 4px rgba(0,0,0,0.1);
 }
 
 html.light-theme .marquee-logo {
