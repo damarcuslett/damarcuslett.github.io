@@ -2757,13 +2757,57 @@ html.light-theme .logo-link-tooltip::after { border-top-color: rgba(255,255,255,
 .nsbe-banner     { background: linear-gradient(135deg, rgba(255,184,28,0.14) 0%, rgba(255,184,28,0.04) 100%); }
 .afrotech-banner { background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(20,20,20,0.8) 100%); }
 .pbs-banner      { background: linear-gradient(135deg, rgba(0,48,135,0.45) 0%, rgba(0,48,135,0.15) 100%); }
-.org-emblem-svg {
+/* Official org logos — local assets */
+.org-logo-img {
+  display: block;
+  object-fit: contain;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+.nsbe-banner:hover .org-logo-img,
+.afrotech-banner:hover .org-logo-img { transform: scale(1.04); }
+/* PBS hover handled by .pbs-medallion — skip generic scale on crest */
+.pbs-banner:hover .pbs-logo-img { transform: none; }
+
+/* NSBE — black logo inverted to white on dark gold-tinted banner */
+.nsbe-logo-img {
+  width: 100%;
+  max-width: 200px;
+  height: 56px;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+/* AfroTech — SVG is all-white paths, renders perfectly on dark banner */
+.afrotech-logo-img {
   width: 100%;
   max-width: 210px;
-  height: 64px;
-  transition: transform var(--transition-base);
+  height: 44px;
 }
-.org-banner:hover .org-emblem-svg { transform: scale(1.04); }
+
+/* PBS — official crest displayed in a white medallion
+   so blue-and-white colors render true to the fraternity's brand */
+.pbs-medallion {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-shadow: 0 0 0 3px rgba(65,105,225,0.4), 0 0 24px rgba(0,48,135,0.5);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.org-banner:hover .pbs-medallion {
+  box-shadow: 0 0 0 3px rgba(65,105,225,0.7), 0 0 36px rgba(0,48,135,0.7);
+  transform: scale(1.06);
+}
+.pbs-logo-img {
+  width: 80px;
+  height: 80px;
+  filter: none;
+  opacity: 1;
+}
 /* ── ORG CARD CONTENT ───────────────────────── */
 .org-card-content {
   display: flex;
