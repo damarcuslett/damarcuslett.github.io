@@ -53,8 +53,8 @@
           <li><a href="#experience" aria-label="Navigate to Experience section">Experience</a></li>
           <li><a href="#skills" aria-label="Navigate to Skills section">Skills</a></li>
           <li><a href="#content" aria-label="Navigate to Content section">Content</a></li>
-          <li><a href="#schedule" aria-label="Navigate to Schedule a Meeting section" class="nav-link">Schedule</a></li>
           <li><a href="#contact" aria-label="Navigate to Contact section">Contact</a></li>
+          <li><a href="#schedule" aria-label="Navigate to Schedule a Meeting section" class="nav-link">Schedule</a></li>
         </ul>
         <div class="nav-actions">
           <button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark theme">
@@ -76,8 +76,8 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#content">Content</a></li>
-        <li><a href="#schedule">Schedule</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#schedule">Schedule</a></li>
         <li><a href="#contact" class="btn-primary" aria-label="Contact Damarcus Lett">Let's Connect</a></li>
       </ul>
     </div>
@@ -605,6 +605,60 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
+    <section id="contact" class="contact-section" role="region" aria-label="Contact Damarcus Lett">
+      <div class="container">
+        <p class="section-eyebrow">Get In Touch</p>
+        <h2 class="section-heading">Let's Build Something Together</h2>
+        <p class="section-subhead">Whether it's collaboration, speaking opportunities, mentorship, or just a good conversation about tech &mdash; I'm here.</p>
+        <div class="contact-cards" role="list" aria-label="Contact options">
+          <article class="contact-card glass-card reveal" role="listitem" aria-label="LinkedIn contact option">
+            <div class="contact-icon" aria-hidden="true"><i class="fa-brands fa-linkedin"></i></div>
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Damarcus Lett on LinkedIn">Connect on LinkedIn</a>
+          </article>
+          <article class="contact-card glass-card reveal" role="listitem" aria-label="Location information">
+            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+            <h3>Location</h3>
+            <p>Greater Seattle, WA Area</p>
+          </article>
+          <article class="contact-card glass-card reveal" role="listitem" aria-label="Open to opportunities">
+            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
+            <h3>Open To</h3>
+            <p>Speaking &bull; Mentorship &bull; Collaboration</p>
+          </article>
+        </div>
+        <form id="contact-form" class="contact-form glass-card" novalidate aria-label="Contact form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your full name" autocomplete="name" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <select id="contact-subject" name="subject" required aria-required="true">
+              <option value="" disabled selected>Select a topic</option>
+              <option value="general">General Inquiry</option>
+              <option value="speaking">Speaking Request</option>
+              <option value="mentorship">Mentorship</option>
+              <option value="collaboration">Collaboration</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" maxlength="2000" placeholder="Tell me about your project or how I can help..." required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-magnetic" aria-label="Send message to Damarcus Lett">Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
     <!-- ═══════════════════════ SCHEDULE ═══════════════════════ -->
     <section id="schedule" role="region" aria-label="Schedule a Meeting with Damarcus Lett" class="schedule-section">
       <div class="container">
@@ -731,59 +785,6 @@
       </div>
     </section><!-- /schedule -->
 
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <section id="contact" class="contact-section" role="region" aria-label="Contact Damarcus Lett">
-      <div class="container">
-        <p class="section-eyebrow">Get In Touch</p>
-        <h2 class="section-heading">Let's Build Something Together</h2>
-        <p class="section-subhead">Whether it's collaboration, speaking opportunities, mentorship, or just a good conversation about tech &mdash; I'm here.</p>
-        <div class="contact-cards" role="list" aria-label="Contact options">
-          <article class="contact-card glass-card reveal" role="listitem" aria-label="LinkedIn contact option">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-brands fa-linkedin"></i></div>
-            <h3>LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Damarcus Lett on LinkedIn">Connect on LinkedIn</a>
-          </article>
-          <article class="contact-card glass-card reveal" role="listitem" aria-label="Location information">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
-            <h3>Location</h3>
-            <p>Greater Seattle, WA Area</p>
-          </article>
-          <article class="contact-card glass-card reveal" role="listitem" aria-label="Open to opportunities">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
-            <h3>Open To</h3>
-            <p>Speaking &bull; Mentorship &bull; Collaboration</p>
-          </article>
-        </div>
-        <form id="contact-form" class="contact-form glass-card" novalidate aria-label="Contact form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="contact-name">Your Name</label>
-              <input type="text" id="contact-name" name="name" placeholder="Your full name" autocomplete="name" required aria-required="true" />
-            </div>
-            <div class="form-group">
-              <label for="contact-email">Email Address</label>
-              <input type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="contact-subject">Subject</label>
-            <select id="contact-subject" name="subject" required aria-required="true">
-              <option value="" disabled selected>Select a topic</option>
-              <option value="general">General Inquiry</option>
-              <option value="speaking">Speaking Request</option>
-              <option value="mentorship">Mentorship</option>
-              <option value="collaboration">Collaboration</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" rows="5" maxlength="2000" placeholder="Tell me about your project or how I can help..." required aria-required="true"></textarea>
-          </div>
-          <button type="submit" class="btn-primary btn-magnetic" aria-label="Send message to Damarcus Lett">Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
-        </form>
-      </div>
-    </section>
 
   </main>
 
