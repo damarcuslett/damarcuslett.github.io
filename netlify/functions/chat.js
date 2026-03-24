@@ -113,18 +113,23 @@ const RATE_LIMIT_MAP = new Map();
 exports.handler = async (event, context) => {
 
   // ── CORS HEADERS ────────────────────────────────────────────────────────
+  const ALLOWED_ORIGINS = [
+    'https://damarcuslett-site.netlify.app',  // primary
+    'https://damarcuslett.github.io',         // GitHub Pages (kept live)
+  ];
+
+  const origin = event.headers['origin'] || '';
+  const isAllowed =
+    ALLOWED_ORIGINS.includes(origin) ||
+    origin.includes('localhost') ||
+    origin.includes('127.0.0.1');
+
   const headers = {
-    'Access-Control-Allow-Origin': 'https://damarcuslett.github.io',
+    'Access-Control-Allow-Origin': isAllowed ? origin : ALLOWED_ORIGINS[0],
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json'
   };
-
-  // Allow localhost for dev
-  const origin = event.headers['origin'] || '';
-  if (origin.includes('localhost') || origin.includes('127.0.0.1') || origin.includes('netlify.app')) {
-    headers['Access-Control-Allow-Origin'] = origin;
-  }
 
   // Preflight
   if (event.httpMethod === 'OPTIONS') {
