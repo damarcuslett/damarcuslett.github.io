@@ -38,6 +38,7 @@
     initMagneticButtons();
     initAnalytics();
     initFooterYear();
+    initScheduleSection();
   }
 
   /* ============================================
@@ -892,6 +893,77 @@
   function initFooterYear() {
     var el = document.getElementById('footer-year');
     if (el) el.textContent = new Date().getFullYear();
+  }
+
+  /* ============================================
+     15. Schedule Section
+     ============================================ */
+  function initScheduleSection() {
+    // Track booking button clicks
+    document.querySelectorAll('[data-track^="booking-"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var meetingType = btn.dataset.track.replace('booking-', '');
+        if (typeof trackEvent === 'function') {
+          trackEvent('Meeting Booked', { type: meetingType, source: 'schedule-section' });
+        }
+        btn.style.transform = 'scale(0.97)';
+        setTimeout(function() { btn.style.transform = ''; }, 150);
+      });
+    });
+
+    // Hide placeholder if real iframe embed is present
+    var iframe = document.querySelector('.calendar-embed-wrapper iframe');
+    var placeholder = document.getElementById('calendar-placeholder');
+    if (iframe && placeholder) {
+      placeholder.hidden = true;
+      iframe.style.opacity = '0';
+      iframe.style.transition = 'opacity 0.4s ease';
+      iframe.addEventListener('load', function() { iframe.style.opacity = '1'; });
+      if (!iframe.hasAttribute('title')) {
+        iframe.setAttribute('title', 'Schedule a meeting with Damarcus Lett');
+      }
+      iframe.setAttribute('aria-label', 'Google Calendar booking interface for Damarcus Lett');
+    }
+
+    // Staggered trust row animation on scroll
+    var trustItems = document.querySelectorAll('.trust-item');
+    trustItems.forEach(function(item, i) {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(10px)';
+      item.style.transition = 'opacity 0.4s ease ' + (i * 80) + 'ms, transform 0.4s ease ' + (i * 80) + 'ms';
+    });
+    var trustRow = document.querySelector('.schedule-trust-row');
+    if (trustRow && 'IntersectionObserver' in window) {
+      var trustObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            trustItems.forEach(function(item) {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            });
+            trustObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px' });
+      trustObserver.observe(trustRow);
+    }
+
+    // 3D tilt effect on meeting cards (pointer devices only)
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      document.querySelectorAll('.meeting-type-card').forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+          var rect = card.getBoundingClientRect();
+          var x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+          var y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+          card.style.transform = 'translateY(-6px) rotateX(' + (-y) + 'deg) rotateY(' + x + 'deg)';
+          card.style.transition = 'transform 0.1s ease';
+        });
+        card.addEventListener('mouseleave', function() {
+          card.style.transform = '';
+          card.style.transition = 'transform var(--transition-base)';
+        });
+      });
+    }
   }
 
 })();

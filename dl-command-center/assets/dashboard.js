@@ -109,10 +109,12 @@ if (!window.DLAuth?.validateSession()) {
       uniqueVisitors: 4231,
       linkedinClicks: 387,
       contactForms:   62,
+      bookingClicks:  29,
       viewsChange:   '+18%',
       uniqueChange:  '+12%',
       linkedinChange:'+34%',
       contactChange: '+8%',
+      bookingChange: '+22%',
       dailyLabels:   days,
       dailyData:     views,
       sources: {
@@ -167,10 +169,12 @@ if (!window.DLAuth?.validateSession()) {
       uniqueVisitors: aggregate.results.visitors?.value ?? 0,
       linkedinClicks: 0,
       contactForms:   0,
+      bookingClicks:  0,
       viewsChange:   '',
       uniqueChange:  '',
       linkedinChange:'',
       contactChange: '',
+      bookingChange: '',
       dailyLabels,
       dailyData,
       sources: getMockData().sources,
@@ -196,6 +200,7 @@ if (!window.DLAuth?.validateSession()) {
     setEl('stat-unique-visitors', formatNum(data.uniqueVisitors));
     setEl('stat-linkedin-clicks', formatNum(data.linkedinClicks));
     setEl('stat-contact-forms',  formatNum(data.contactForms));
+    setEl('stat-bookings',       formatNum(data.bookingClicks));
     setChangeEl('change-views',    data.viewsChange);
     setChangeEl('change-unique',   data.uniqueChange);
     setChangeEl('change-linkedin', data.linkedinChange);
