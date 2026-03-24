@@ -2405,6 +2405,129 @@ html.light-theme .meeting-type-title { color: var(--color-text-primary); }
   .schedule-trust-row { flex-direction: column; align-items: flex-start; }
 }
 
+/* ═══════════════════════════════════════════════
+   COMPANY LOGO LINKS — CLICKABLE UPGRADE
+   ═══════════════════════════════════════════════ */
+.company-logo-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transition-base);
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+}
+.company-logo-link:focus-visible {
+  outline: 2px solid var(--color-blue-light);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+.company-logo-link:hover {
+  transform: translateY(-3px);
+}
+.timeline-card .company-logo-link:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+.company-logo-link img {
+  display: block;
+  transition: filter var(--transition-base), opacity var(--transition-base);
+}
+.company-logo-link:hover img {
+  filter: brightness(0) invert(1) !important;
+  opacity: 1;
+}
+html.light-theme .company-logo-link:hover img {
+  filter: none !important;
+  opacity: 1;
+}
+.logo-link-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  z-index: var(--z-card);
+}
+.logo-link-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--color-border);
+}
+.company-logo-link:hover .logo-link-tooltip,
+.company-logo-link:focus-visible .logo-link-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.logo-link-tooltip svg {
+  color: var(--color-blue-light);
+  flex-shrink: 0;
+}
+.company-logo-link::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: var(--radius-md);
+  background: rgba(37,99,235,0.15);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+.company-logo-link:active::after {
+  opacity: 1;
+  transform: scale(1);
+  transition: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .company-logo-link { cursor: alias; }
+}
+.timeline-card:hover .company-logo-link { transform: none; }
+.timeline-card .company-logo-link:hover { transform: translateY(-3px) scale(1.08); z-index: 2; }
+.timeline-card .logo-link-tooltip { z-index: calc(var(--z-card) + 5); }
+.about-logo-strip .company-logo-link {
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  transition: background var(--transition-base), transform var(--transition-base);
+}
+.about-logo-strip .company-logo-link:hover {
+  background: rgba(37,99,235,0.08);
+  transform: translateY(-3px);
+}
+.marquee-track .company-logo-link { display: inline-flex; align-items: center; }
+.marquee-track .company-logo-link .logo-link-tooltip { display: none; }
+.marquee-track .company-logo-link:hover { transform: translateY(-2px); }
+@media (max-width: 768px) {
+  .logo-link-tooltip { display: none; }
+  .company-logo-link:active { transform: scale(0.95); opacity: 0.8; }
+  .company-logo-link { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+}
+html.light-theme .logo-link-tooltip { background: #1F2937; color: #F9FAFB; border-color: rgba(255,255,255,0.1); }
+html.light-theme .logo-link-tooltip::after { border-top-color: rgba(255,255,255,0.1); }
+
 /* Touch devices — restore normal cursor behavior */
 @media (hover: none) or (pointer: coarse) {
   body { cursor: auto; }

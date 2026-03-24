@@ -201,6 +201,7 @@ if (!window.DLAuth?.validateSession()) {
     setEl('stat-linkedin-clicks', formatNum(data.linkedinClicks));
     setEl('stat-contact-forms',  formatNum(data.contactForms));
     setEl('stat-bookings',       formatNum(data.bookingClicks));
+    setEl('stat-logo-clicks', '—');
     setChangeEl('change-views',    data.viewsChange);
     setChangeEl('change-unique',   data.uniqueChange);
     setChangeEl('change-linkedin', data.linkedinChange);

@@ -39,6 +39,7 @@
     initAnalytics();
     initFooterYear();
     initScheduleSection();
+    initCompanyLogoLinks();
   }
 
   /* ============================================
@@ -963,6 +964,77 @@
           card.style.transition = 'transform var(--transition-base)';
         });
       });
+    }
+  }
+
+  /* ============================================
+     16. Company Logo Links
+     ============================================ */
+  function initCompanyLogoLinks() {
+    var logoLinks = document.querySelectorAll('.company-logo-link');
+    var prefetched = new Set();
+
+    logoLinks.forEach(function(link) {
+      var company = link.dataset.company || 'this company';
+      var url = link.href;
+
+      // Click tracking + visual pulse
+      link.addEventListener('click', function() {
+        if (typeof trackEvent === 'function') {
+          trackEvent('Company Logo Clicked', {
+            company: company,
+            url: url,
+            source: getLogoSource(link)
+          });
+        }
+        var img = link.querySelector('img');
+        if (img) {
+          img.style.transform = 'scale(0.92)';
+          img.style.transition = 'transform 0.1s ease';
+          setTimeout(function() {
+            img.style.transform = '';
+            img.style.transition = '';
+          }, 150);
+        }
+      });
+
+      // Middle-click tracking
+      link.addEventListener('auxclick', function(e) {
+        if (e.button === 1 && typeof trackEvent === 'function') {
+          trackEvent('Company Logo Clicked', { company: company, source: 'middle-click' });
+        }
+      });
+
+      // Touch feedback
+      link.addEventListener('touchstart', function() {
+        link.style.opacity = '0.7';
+        link.style.transition = 'opacity 0.1s ease';
+      }, { passive: true });
+      link.addEventListener('touchend', function() {
+        setTimeout(function() {
+          link.style.opacity = '';
+          link.style.transition = '';
+        }, 200);
+      }, { passive: true });
+
+      // Prefetch on hover
+      link.addEventListener('mouseenter', function() {
+        if (!prefetched.has(url)) {
+          var pl = document.createElement('link');
+          pl.rel = 'prefetch';
+          pl.href = url;
+          document.head.appendChild(pl);
+          prefetched.add(url);
+        }
+      }, { passive: true });
+    });
+
+    function getLogoSource(link) {
+      if (link.closest('.timeline-card'))    return 'timeline';
+      if (link.closest('.mini-logos'))       return 'about-strip';
+      if (link.closest('.marquee-track'))    return 'marquee';
+      if (link.closest('.profile-badge'))    return 'profile-badge';
+      return 'unknown';
     }
   }
 
