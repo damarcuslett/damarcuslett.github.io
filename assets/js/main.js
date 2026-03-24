@@ -40,6 +40,7 @@
     initFooterYear();
     initScheduleSection();
     initCompanyLogoLinks();
+    initOrganizationsSection();
   }
 
   /* ============================================
@@ -1036,6 +1037,92 @@
       if (link.closest('.profile-badge'))    return 'profile-badge';
       return 'unknown';
     }
+  }
+
+  /* ============================================
+     17. Organizations & Community Section
+     ============================================ */
+  function initOrganizationsSection() {
+    // Track org link clicks for analytics
+    document.querySelectorAll('[data-track^="org-click-"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var org = btn.dataset.track.replace('org-click-', '').toUpperCase();
+        if (typeof trackEvent === 'function') {
+          trackEvent('Organization Clicked', {
+            org: org,
+            source: 'organizations-section'
+          });
+        }
+      });
+    });
+
+    // Stagger animate org cards on scroll entry
+    var orgCards = document.querySelectorAll('.org-card');
+    orgCards.forEach(function(card, i) {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(32px)';
+      card.style.transition =
+        'opacity 0.6s ease ' + (i * 120) + 'ms, ' +
+        'transform 0.6s cubic-bezier(0.16,1,0.3,1) ' + (i * 120) + 'ms';
+    });
+    var grid = document.querySelector('.org-cards-grid');
+    if (grid) {
+      var gridObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            orgCards.forEach(function(card) {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            });
+            gridObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      gridObserver.observe(grid);
+    }
+
+    // Value bar items animate in with stagger
+    var valueItems = document.querySelectorAll('.value-item');
+    valueItems.forEach(function(item, i) {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(12px)';
+      item.style.transition =
+        'opacity 0.4s ease ' + (i * 60) + 'ms, ' +
+        'transform 0.4s ease ' + (i * 60) + 'ms';
+    });
+    var valuesBar = document.querySelector('.community-values-bar');
+    if (valuesBar) {
+      var barObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            valueItems.forEach(function(item) {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            });
+            barObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -5% 0px' });
+      barObserver.observe(valuesBar);
+    }
+
+    // Prefetch org websites on card hover
+    var prefetchedOrgs = new Set();
+    document.querySelectorAll('.org-card').forEach(function(card) {
+      card.addEventListener('mouseenter', function() {
+        var links = card.querySelectorAll('a[href]');
+        links.forEach(function(link) {
+          var href = link.href;
+          if (href && !prefetchedOrgs.has(href)) {
+            var el = document.createElement('link');
+            el.rel = 'prefetch';
+            el.href = href;
+            document.head.appendChild(el);
+            prefetchedOrgs.add(href);
+          }
+        });
+      }, { passive: true });
+    });
   }
 
 })();
