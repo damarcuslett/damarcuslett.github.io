@@ -30,8 +30,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
-  <link rel="preload" href="assets/css/styles.css?v=11" as="style" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=11" />
+  <link rel="preload" href="assets/css/styles.css?v=12" as="style" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=12" />
   <script defer data-domain="damarcuslett.github.io" src="https://plausible.io/js/script.js"></script>
   <script defer src="assets/js/main.js?v=9"></script>
 </head>
@@ -568,275 +568,137 @@
       class="organizations-section"
     >
       <div class="container">
-        <!-- Section Header -->
-        <div class="section-header" data-animate="fade-up">
+
+        <div class="section-header">
           <span class="section-eyebrow">Community &amp; Representation</span>
           <h2 class="section-heading">Organizations I Represent</h2>
-          <p class="section-subheading">
-            Engineering excellence, cultural pride, and service to
-            humanity are not just values — they are commitments I live
-            through the organizations I belong to. These communities
-            shaped who I am as a professional and a person.
-          </p>
+          <p class="section-subhead">Engineering excellence, cultural pride, and service to humanity aren't just values — they are commitments I live through the communities that shaped me as a professional and a person.</p>
         </div>
 
-        <!-- Organization Cards Grid -->
-        <div
-          class="org-cards-grid"
-          data-animate="fade-up"
-          data-delay="100"
-        >
+        <div class="org-cards-grid">
 
-          <!-- ── NSBE ─────────────────────────────────────── -->
-          <article
-            class="org-card glass-card"
-            data-org="nsbe"
-            aria-label="NSBE — National Society of Black Engineers"
-          >
-            <div class="org-card-header">
-              <div class="org-logo-wrapper">
-                <a
-                  href="https://www.nsbe.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit NSBE official website — opens in new tab"
-                  class="org-logo-link"
-                >
-                  <img
-                    src="https://www.nsbe.org/wp-content/themes/nsbe/images/nsbe-logo.png"
-                    alt="NSBE — National Society of Black Engineers logo"
-                    class="org-logo"
-                    loading="lazy"
-                    width="120"
-                    height="60"
-                    onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="org-logo-fallback nsbe-fallback" style="display:none;" aria-hidden="true">
-                    <span>NSBE</span>
-                  </div>
-                </a>
+          <!-- ── NSBE ────────────────────────────────────────── -->
+          <article class="org-card glass-card reveal" data-org="nsbe" aria-label="NSBE — National Society of Black Engineers">
+            <a href="https://www.nsbe.org" target="_blank" rel="noopener noreferrer"
+               class="org-banner nsbe-banner"
+               aria-label="Visit NSBE official website — opens in new tab">
+              <svg class="org-emblem-svg" viewBox="0 0 220 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NSBE — National Society of Black Engineers wordmark">
+                <!-- Engineering gear icon -->
+                <circle cx="30" cy="32" r="13" fill="none" stroke="#FFB81C" stroke-width="2.2"/>
+                <circle cx="30" cy="32" r="5.5" fill="#FFB81C"/>
+                <path d="M30 10v7M30 47v7M8 32h7M45 32h7M14.1 16.1l4.9 4.9M41.1 43.1l4.9 4.9M41.1 16.1l-4.9 4.9M14.1 47.9l4.9-4.9" stroke="#FFB81C" stroke-width="2.2" stroke-linecap="round"/>
+                <!-- NSBE wordmark -->
+                <text x="64" y="45" font-family="'Arial Black', 'Arial Bold', Arial, sans-serif" font-size="30" font-weight="900" fill="#FFB81C" letter-spacing="4">NSBE</text>
+              </svg>
+            </a>
+            <div class="org-card-content">
+              <div class="org-meta-row">
+                <span class="org-membership-badge nsbe-badge">Member &amp; Representative</span>
+                <span class="org-est">Est. 1975</span>
               </div>
-              <div class="org-tag nsbe-tag">Engineering Excellence</div>
-            </div>
-            <div class="org-card-body">
               <h3 class="org-name">National Society of Black Engineers</h3>
-              <p class="org-role">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-                  <circle cx="12" cy="7" r="4"/>
-                </svg>
-                Member &amp; Representative
-              </p>
-              <p class="org-founded">Est. 1975</p>
-              <p class="org-description">
-                The largest student-governed organization whose purpose is
-                to increase the number of culturally responsible Black
-                engineers who excel academically, succeed professionally,
-                and positively impact the community.
-              </p>
-            </div>
-            <div class="org-card-footer">
-              <div class="org-pillars">
-                <span class="org-pillar">Academic Excellence</span>
-                <span class="org-pillar">Professional Dev</span>
-                <span class="org-pillar">Community Impact</span>
+              <p class="org-description">The largest student-governed organization whose purpose is to increase the number of culturally responsible Black engineers who excel academically, succeed professionally, and positively impact the community.</p>
+              <div class="org-tags">
+                <span class="skill-tag">Academic Excellence</span>
+                <span class="skill-tag">Professional Dev</span>
+                <span class="skill-tag">Community Impact</span>
               </div>
-              <a
-                href="https://www.nsbe.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="org-visit-btn"
-                aria-label="Visit NSBE website — opens in new tab"
-                data-track="org-click-nsbe"
-              >
-                Visit NSBE
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
+              <a href="https://www.nsbe.org" target="_blank" rel="noopener noreferrer"
+                 class="org-cta-link" aria-label="Visit NSBE website — opens in new tab" data-track="org-click-nsbe">
+                nsbe.org
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
           </article>
 
-          <!-- ── AFROTECH ───────────────────────────────── -->
-          <article
-            class="org-card glass-card featured-org"
-            data-org="afrotech"
-            aria-label="AfroTech — Premier Black Tech Conference and Community"
-          >
-            <div class="org-card-header">
-              <div class="org-logo-wrapper">
-                <a
-                  href="https://afrotech.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit AfroTech official website — opens in new tab"
-                  class="org-logo-link"
-                >
-                  <img
-                    src="https://afrotech.com/wp-content/uploads/2022/08/afrotech-logo.png"
-                    alt="AfroTech logo"
-                    class="org-logo"
-                    loading="lazy"
-                    width="140"
-                    height="50"
-                    onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="org-logo-fallback afrotech-fallback" style="display:none;" aria-hidden="true">
-                    <span>AfroTech</span>
-                  </div>
-                </a>
+          <!-- ── AFROTECH ───────────────────────────────────── -->
+          <article class="org-card glass-card reveal" data-org="afrotech" aria-label="AfroTech — Premier Black Tech Conference and Community">
+            <a href="https://afrotech.com" target="_blank" rel="noopener noreferrer"
+               class="org-banner afrotech-banner"
+               aria-label="Visit AfroTech official website — opens in new tab">
+              <svg class="org-emblem-svg" viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AfroTech wordmark">
+                <text x="0" y="50" font-family="'Arial Black', 'Arial Bold', Arial, sans-serif" font-size="40" font-weight="900" fill="#FFFFFF" letter-spacing="-1">afro</text>
+                <text x="113" y="50" font-family="'Arial Black', 'Arial Bold', Arial, sans-serif" font-size="40" font-weight="900" fill="#F5A623" letter-spacing="-1">tech</text>
+              </svg>
+            </a>
+            <div class="org-card-content">
+              <div class="org-meta-row">
+                <span class="org-membership-badge afrotech-badge">Member &amp; Conference Attendee</span>
               </div>
-              <div class="org-tag afrotech-tag">Tech &amp; Innovation</div>
-            </div>
-            <div class="org-card-body">
               <h3 class="org-name">AfroTech</h3>
-              <p class="org-role">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-                  <circle cx="12" cy="7" r="4"/>
-                </svg>
-                Member &amp; Conference Attendee
-              </p>
-              <p class="org-founded">Where the Culture Meets Silicon Valley</p>
-              <p class="org-description">
-                The premier tech conference and media brand celebrating
-                and accelerating the careers of Black technologists.
-                A community where innovation, culture, and opportunity
-                converge at the highest level.
-              </p>
-            </div>
-            <div class="org-card-footer">
-              <div class="org-pillars">
-                <span class="org-pillar">Innovation</span>
-                <span class="org-pillar">Networking</span>
-                <span class="org-pillar">Black Excellence</span>
+              <p class="org-description">The premier tech conference and media brand celebrating and accelerating the careers of Black technologists. Where the culture meets Silicon Valley — innovation, community, and opportunity at the highest level.</p>
+              <div class="org-tags">
+                <span class="skill-tag">Innovation</span>
+                <span class="skill-tag">Networking</span>
+                <span class="skill-tag">Black Excellence</span>
               </div>
-              <a
-                href="https://afrotech.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="org-visit-btn org-visit-primary"
-                aria-label="Visit AfroTech website — opens in new tab"
-                data-track="org-click-afrotech"
-              >
-                Visit AfroTech
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
+              <a href="https://afrotech.com" target="_blank" rel="noopener noreferrer"
+                 class="org-cta-link" aria-label="Visit AfroTech website — opens in new tab" data-track="org-click-afrotech">
+                afrotech.com
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
           </article>
 
-          <!-- ── PHI BETA SIGMA ─────────────────────────── -->
-          <article
-            class="org-card glass-card"
-            data-org="pbs"
-            aria-label="Phi Beta Sigma Fraternity Incorporated"
-          >
-            <div class="org-card-header">
-              <div class="org-logo-wrapper">
-                <a
-                  href="https://www.phibetasigma1914.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit Phi Beta Sigma official website — opens in new tab"
-                  class="org-logo-link"
-                >
-                  <img
-                    src="https://www.phibetasigma1914.org/wp-content/uploads/2019/01/PBS-Logo.png"
-                    alt="Phi Beta Sigma Fraternity Incorporated crest"
-                    class="org-logo"
-                    loading="lazy"
-                    width="80"
-                    height="80"
-                    onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="org-logo-fallback pbs-fallback" style="display:none;" aria-hidden="true">
-                    <span>&#934;&#914;&#931;</span>
-                  </div>
-                </a>
+          <!-- ── PHI BETA SIGMA ──────────────────────────────── -->
+          <article class="org-card glass-card reveal" data-org="pbs" aria-label="Phi Beta Sigma Fraternity Incorporated">
+            <a href="https://www.phibetasigma1914.org" target="_blank" rel="noopener noreferrer"
+               class="org-banner pbs-banner"
+               aria-label="Visit Phi Beta Sigma official website — opens in new tab">
+              <svg class="org-emblem-svg" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Phi Beta Sigma fraternity crest">
+                <!-- Shield crest -->
+                <path d="M100 6 L152 24 V50 Q152 68 100 74 Q48 68 48 50 V24 Z" fill="rgba(0,48,135,0.55)" stroke="#4169E1" stroke-width="2" stroke-linejoin="round"/>
+                <!-- Greek letters ΦΒΣ -->
+                <text x="100" y="54" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="5">&#934;&#914;&#931;</text>
+              </svg>
+            </a>
+            <div class="org-card-content">
+              <div class="org-meta-row">
+                <span class="org-membership-badge pbs-badge">Member</span>
+                <span class="org-est">Founded Howard Univ. 1914</span>
               </div>
-              <div class="org-tag pbs-tag">Brotherhood &amp; Service</div>
-            </div>
-            <div class="org-card-body">
               <h3 class="org-name">Phi Beta Sigma Fraternity, Inc.</h3>
-              <p class="org-role">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-                  <circle cx="12" cy="7" r="4"/>
-                </svg>
-                Member — Founded Howard University, 1914
-              </p>
-              <p class="org-founded">
-                <em>&ldquo;Culture For Service and Service For Humanity&rdquo;</em>
-              </p>
-              <p class="org-description">
-                A historically Black Greek-letter organization built on
-                the eternal principles of Brotherhood, Scholarship, and
-                Service. One of the most distinguished fraternities in
-                the world — shaping leaders since 1914.
-              </p>
-            </div>
-            <div class="org-card-footer">
-              <div class="org-pillars">
-                <span class="org-pillar">Brotherhood</span>
-                <span class="org-pillar">Scholarship</span>
-                <span class="org-pillar">Service</span>
+              <p class="org-description">A historically Black Greek-letter organization built on Brotherhood, Scholarship, and Service. <em>&ldquo;Culture For Service and Service For Humanity.&rdquo;</em> Shaping leaders since 1914.</p>
+              <div class="org-tags">
+                <span class="skill-tag">Brotherhood</span>
+                <span class="skill-tag">Scholarship</span>
+                <span class="skill-tag">Service</span>
               </div>
-              <a
-                href="https://www.phibetasigma1914.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="org-visit-btn"
-                aria-label="Visit Phi Beta Sigma website — opens in new tab"
-                data-track="org-click-pbs"
-              >
-                Visit &#934;&#914;&#931;
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
+              <a href="https://www.phibetasigma1914.org" target="_blank" rel="noopener noreferrer"
+                 class="org-cta-link" aria-label="Visit Phi Beta Sigma website — opens in new tab" data-track="org-click-pbs">
+                phibetasigma1914.org
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
           </article>
 
         </div><!-- /org-cards-grid -->
 
-        <!-- Community Values Bar -->
-        <div
-          class="community-values-bar"
-          data-animate="fade-up"
-          data-delay="200"
-          aria-label="Core community values"
-        >
-          <div class="value-item">
-            <span class="value-icon" aria-hidden="true">🤝</span>
-            <span class="value-label">Brotherhood</span>
+        <!-- Community Identity Strip -->
+        <div class="org-identity-strip glass-card reveal" aria-label="Core community values">
+          <div class="identity-item">
+            <div class="identity-icon" aria-hidden="true"><i class="fa-solid fa-handshake-angle"></i></div>
+            <span>Brotherhood</span>
           </div>
-          <div class="value-divider" aria-hidden="true"></div>
-          <div class="value-item">
-            <span class="value-icon" aria-hidden="true">📐</span>
-            <span class="value-label">Engineering Excellence</span>
+          <div class="identity-sep" aria-hidden="true"></div>
+          <div class="identity-item">
+            <div class="identity-icon" aria-hidden="true"><i class="fa-solid fa-gear"></i></div>
+            <span>Engineering Excellence</span>
           </div>
-          <div class="value-divider" aria-hidden="true"></div>
-          <div class="value-item">
-            <span class="value-icon" aria-hidden="true">🌍</span>
-            <span class="value-label">Service to Community</span>
+          <div class="identity-sep" aria-hidden="true"></div>
+          <div class="identity-item">
+            <div class="identity-icon" aria-hidden="true"><i class="fa-solid fa-globe"></i></div>
+            <span>Service to Community</span>
           </div>
-          <div class="value-divider" aria-hidden="true"></div>
-          <div class="value-item">
-            <span class="value-icon" aria-hidden="true">⚡</span>
-            <span class="value-label">Black Excellence in Tech</span>
+          <div class="identity-sep" aria-hidden="true"></div>
+          <div class="identity-item">
+            <div class="identity-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
+            <span>Black Excellence in Tech</span>
           </div>
-          <div class="value-divider" aria-hidden="true"></div>
-          <div class="value-item">
-            <span class="value-icon" aria-hidden="true">🚀</span>
-            <span class="value-label">Lifting As We Climb</span>
+          <div class="identity-sep" aria-hidden="true"></div>
+          <div class="identity-item">
+            <div class="identity-icon" aria-hidden="true"><i class="fa-solid fa-arrow-trend-up"></i></div>
+            <span>Lifting As We Climb</span>
           </div>
         </div>
 
@@ -951,125 +813,111 @@
     <!-- ═══════════════════════ SCHEDULE ═══════════════════════ -->
     <section id="schedule" role="region" aria-label="Schedule a Meeting with Damarcus Lett" class="schedule-section">
       <div class="container">
-        <div class="section-header" data-animate="fade-up">
+
+        <div class="section-header">
           <span class="section-eyebrow">Book Time With Me</span>
           <h2 class="section-heading">Schedule a Meeting</h2>
-          <p class="section-subheading">
-            Whether you want to talk career strategy, explore a collaboration,
-            request a speaking engagement, or just connect — grab a time
-            directly on my calendar. No back-and-forth emails.
-          </p>
+          <p class="section-subhead">No back-and-forth emails. Grab a time directly on my calendar — career strategy, collaboration, mentorship, or just a solid conversation about tech.</p>
         </div>
 
-        <!-- Meeting type cards -->
-        <div class="meeting-types-grid" data-animate="fade-up" data-delay="100">
+        <div class="schedule-layout">
 
-          <!-- 15 min -->
-          <div class="meeting-type-card glass-card" data-meeting-type="quick">
-            <div class="meeting-type-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div class="meeting-type-duration">15 min</div>
-            <h3 class="meeting-type-title">Quick Chat</h3>
-            <p class="meeting-type-desc">A fast intro call. Perfect for networking, a quick question, or seeing if there is potential to work together.</p>
-            <ul class="meeting-type-features" aria-label="What this meeting covers">
-              <li>Introduction and background</li>
-              <li>One focused topic</li>
-              <li>Next steps if relevant</li>
-            </ul>
-            <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer" class="btn-meeting-book" aria-label="Book a 15 minute Quick Chat with Damarcus Lett" data-track="booking-quick-chat">
-              Book This Call
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
+          <!-- ── LEFT: Meeting options + trust ─────────────── -->
+          <div class="schedule-options-col">
 
-          <!-- 30 min — featured -->
-          <div class="meeting-type-card glass-card featured-meeting" data-meeting-type="discovery">
-            <div class="featured-badge" aria-label="Most popular option">Most Popular</div>
-            <div class="meeting-type-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-            </div>
-            <div class="meeting-type-duration">30 min</div>
-            <h3 class="meeting-type-title">Discovery Call</h3>
-            <p class="meeting-type-desc">The ideal first meeting. We explore your goals, my experience, and how we might collaborate, mentor, or create together.</p>
-            <ul class="meeting-type-features" aria-label="What this meeting covers">
-              <li>Your goals and challenges</li>
-              <li>My relevant experience</li>
-              <li>Collaboration possibilities</li>
-              <li>Actionable takeaways</li>
-            </ul>
-            <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer" class="btn-meeting-book btn-meeting-primary" aria-label="Book a 30 minute Discovery Call with Damarcus Lett" data-track="booking-discovery-call">
-              Book This Call
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-
-          <!-- 60 min -->
-          <div class="meeting-type-card glass-card" data-meeting-type="deepdive">
-            <div class="meeting-type-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <div class="meeting-type-duration">60 min</div>
-            <h3 class="meeting-type-title">Deep Dive</h3>
-            <p class="meeting-type-desc">For serious collaboration, speaking engagements, mentorship sessions, or technical strategy discussions that need real time.</p>
-            <ul class="meeting-type-features" aria-label="What this meeting covers">
-              <li>Speaking and partnership deals</li>
-              <li>Technical mentorship</li>
-              <li>Strategic planning sessions</li>
-              <li>Content collaboration</li>
-            </ul>
-            <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer" class="btn-meeting-book" aria-label="Book a 60 minute Deep Dive with Damarcus Lett" data-track="booking-deep-dive">
-              Book This Call
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-
-        </div><!-- /meeting-types-grid -->
-
-        <!-- Inline calendar embed -->
-        <div class="calendar-embed-wrapper" data-animate="fade-up" data-delay="200">
-          <div class="calendar-embed-header">
-            <div class="calendar-embed-title-row">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue-light)" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span>Live Availability — Pick a Time That Works for You</span>
-            </div>
-            <span class="calendar-timezone-note" aria-live="polite">Times shown in your local timezone</span>
-          </div>
-          <!-- Placeholder shown until embed is pasted below -->
-          <div class="calendar-embed-placeholder" id="calendar-placeholder" role="region" aria-label="Calendar booking placeholder">
-            <div class="placeholder-inner">
-              <div class="placeholder-icon" aria-hidden="true">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue-primary)" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <!-- Quick Chat 15 min -->
+            <div class="meeting-option glass-card reveal" data-meeting-type="quick">
+              <div class="meeting-opt-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
-              <h3>Calendar Loading Soon</h3>
-              <p>The live booking calendar appears here once your Google Calendar appointment schedule is configured.</p>
-              <p class="placeholder-instruction">In the meantime use the Book buttons above or connect on <a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Damarcus on LinkedIn">LinkedIn</a>.</p>
+              <div class="meeting-opt-body">
+                <div class="meeting-opt-header">
+                  <h3 class="meeting-opt-title">Quick Chat</h3>
+                  <span class="timeline-badge">15 min</span>
+                </div>
+                <p class="meeting-opt-desc">Fast intro — networking, a quick question, or exploring if we should work together.</p>
+              </div>
+              <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer"
+                 class="meeting-opt-cta" aria-label="Book a 15 minute Quick Chat with Damarcus Lett" data-track="booking-quick-chat">
+                Book <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
             </div>
-          </div>
-          <!-- Google Calendar Appointment Scheduling begin -->
-          <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VraxujgS7hi-pcFuv-pn0xzCJgClwxWC7iG1MaQ3W1O01YkuNOQ4GwVqB2ZYu6k2vtM061exT?gv=true" style="border: 0" width="100%" height="600" frameborder="0" title="Schedule a meeting with Damarcus Lett" aria-label="Google Calendar booking interface for Damarcus Lett"></iframe>
-          <!-- end Google Calendar Appointment Scheduling -->
-        </div>
 
-        <!-- Trust row -->
-        <div class="schedule-trust-row" data-animate="fade-up" data-delay="300" aria-label="Meeting details and guarantees">
-          <div class="trust-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue-light)" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <span>Google Meet link sent automatically</span>
-          </div>
-          <div class="trust-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue-light)" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>24-hour advance notice required</span>
-          </div>
-          <div class="trust-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue-light)" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>All times shown in your timezone</span>
-          </div>
-          <div class="trust-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue-light)" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Confirmation email sent instantly</span>
-          </div>
-        </div>
+            <!-- Discovery Call 30 min — featured -->
+            <div class="meeting-option glass-card reveal meeting-option-featured" data-meeting-type="discovery">
+              <div class="meeting-opt-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div class="meeting-opt-body">
+                <div class="meeting-opt-header">
+                  <h3 class="meeting-opt-title">Discovery Call</h3>
+                  <span class="timeline-badge badge-professional">30 min · Most Popular</span>
+                </div>
+                <p class="meeting-opt-desc">Ideal first meeting — goals, experience, collaboration possibilities, and actionable takeaways.</p>
+              </div>
+              <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer"
+                 class="meeting-opt-cta meeting-opt-cta-featured" aria-label="Book a 30 minute Discovery Call with Damarcus Lett" data-track="booking-discovery-call">
+                Book <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+
+            <!-- Deep Dive 60 min -->
+            <div class="meeting-option glass-card reveal" data-meeting-type="deepdive">
+              <div class="meeting-opt-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="meeting-opt-body">
+                <div class="meeting-opt-header">
+                  <h3 class="meeting-opt-title">Deep Dive</h3>
+                  <span class="timeline-badge">60 min</span>
+                </div>
+                <p class="meeting-opt-desc">Speaking engagements, mentorship, technical strategy, or content collaboration that needs real time.</p>
+              </div>
+              <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer"
+                 class="meeting-opt-cta" aria-label="Book a 60 minute Deep Dive with Damarcus Lett" data-track="booking-deep-dive">
+                Book <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+
+            <!-- Trust signals — 2×2 glass chips -->
+            <div class="sched-trust-grid reveal" aria-label="Meeting guarantees">
+              <div class="sched-trust-item">
+                <i class="fa-brands fa-google" aria-hidden="true"></i>
+                <span>Google Meet auto-sent</span>
+              </div>
+              <div class="sched-trust-item">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                <span>24-hr advance notice</span>
+              </div>
+              <div class="sched-trust-item">
+                <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                <span>Your timezone auto-detected</span>
+              </div>
+              <div class="sched-trust-item">
+                <i class="fa-solid fa-envelope-circle-check" aria-hidden="true"></i>
+                <span>Instant confirmation</span>
+              </div>
+            </div>
+
+          </div><!-- /schedule-options-col -->
+
+          <!-- ── RIGHT: Live calendar embed ────────────────── -->
+          <div class="schedule-embed-col">
+            <div class="calendar-embed-wrapper">
+              <div class="calendar-embed-header">
+                <div class="calendar-embed-title-row">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue-light)" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span>Live Availability</span>
+                </div>
+                <span class="calendar-timezone-note" aria-live="polite">Times shown in your local timezone</span>
+              </div>
+              <!-- Google Calendar Appointment Scheduling begin -->
+              <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VraxujgS7hi-pcFuv-pn0xzCJgClwxWC7iG1MaQ3W1O01YkuNOQ4GwVqB2ZYu6k2vtM061exT?gv=true" style="border: 0" width="100%" height="620" frameborder="0" title="Schedule a meeting with Damarcus Lett" aria-label="Google Calendar booking interface for Damarcus Lett"></iframe>
+              <!-- end Google Calendar Appointment Scheduling -->
+            </div>
+          </div><!-- /schedule-embed-col -->
+
+        </div><!-- /schedule-layout -->
 
       </div>
     </section><!-- /schedule -->
