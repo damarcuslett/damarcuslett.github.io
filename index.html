@@ -30,10 +30,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
-  <link rel="preload" href="assets/css/styles.css?v=13" as="style" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <link rel="preload" href="assets/css/styles.css?v=14" as="style" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=14" />
   <script defer data-domain="damarcuslett.github.io" src="https://plausible.io/js/script.js"></script>
-  <script defer src="assets/js/main.js?v=9"></script>
+  <script defer src="assets/js/main.js?v=10"></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -55,7 +55,6 @@
           <li><a href="#organizations" aria-label="Navigate to Organizations and Community section" class="nav-link">Community</a></li>
           <li><a href="#content" aria-label="Navigate to Content section">Content</a></li>
           <li><a href="#contact" aria-label="Navigate to Contact section">Contact</a></li>
-          <li><a href="#schedule" aria-label="Navigate to Schedule a Meeting section" class="nav-link">Schedule</a></li>
         </ul>
         <div class="nav-actions">
           <button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark theme">
@@ -79,7 +78,6 @@
         <li><a href="#organizations">Community</a></li>
         <li><a href="#content">Content</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#schedule">Schedule</a></li>
         <li><a href="#contact" class="btn-primary" aria-label="Contact Damarcus Lett">Let's Connect</a></li>
       </ul>
     </div>
@@ -761,171 +759,194 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <section id="contact" class="contact-section" role="region" aria-label="Contact Damarcus Lett">
+    <!-- ═══════════════════════ CONTACT + SCHEDULE (UNIFIED) ═══════════════════════ -->
+    <section id="contact" class="contact-section" role="region" aria-label="Contact and Schedule">
       <div class="container">
+
         <p class="section-eyebrow">Get In Touch</p>
         <h2 class="section-heading">Let's Build Something Together</h2>
-        <p class="section-subhead">Whether it's collaboration, speaking opportunities, mentorship, or just a good conversation about tech &mdash; I'm here.</p>
-        <div class="contact-cards" role="list" aria-label="Contact options">
-          <article class="contact-card glass-card reveal" role="listitem" aria-label="LinkedIn contact option">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-brands fa-linkedin"></i></div>
-            <h3>LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Damarcus Lett on LinkedIn">Connect on LinkedIn</a>
-          </article>
-          <article class="contact-card glass-card reveal" role="listitem" aria-label="Location information">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
-            <h3>Location</h3>
-            <p>Greater Seattle, WA Area</p>
-          </article>
-          <article class="contact-card glass-card reveal" role="listitem" aria-label="Open to opportunities">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
-            <h3>Open To</h3>
-            <p>Speaking &bull; Mentorship &bull; Collaboration</p>
-          </article>
-        </div>
-        <form id="contact-form" class="contact-form glass-card" novalidate aria-label="Contact form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="contact-name">Your Name</label>
-              <input type="text" id="contact-name" name="name" placeholder="Your full name" autocomplete="name" required aria-required="true" />
-            </div>
-            <div class="form-group">
-              <label for="contact-email">Email Address</label>
-              <input type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="contact-subject">Subject</label>
-            <select id="contact-subject" name="subject" required aria-required="true">
-              <option value="" disabled selected>Select a topic</option>
-              <option value="general">General Inquiry</option>
-              <option value="speaking">Speaking Request</option>
-              <option value="mentorship">Mentorship</option>
-              <option value="collaboration">Collaboration</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" rows="5" maxlength="2000" placeholder="Tell me about your project or how I can help..." required aria-required="true"></textarea>
-          </div>
-          <button type="submit" class="btn-primary btn-magnetic" aria-label="Send message to Damarcus Lett">Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
-        </form>
-      </div>
-    </section>
+        <p class="section-subhead">Whether it's collaboration, speaking opportunities, mentorship, or just a good conversation about tech &mdash; I'm here. Send a message or grab time on my calendar directly.</p>
 
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- ═══════════════════════ SCHEDULE ═══════════════════════ -->
-    <section id="schedule" role="region" aria-label="Schedule a Meeting with Damarcus Lett" class="schedule-section">
-      <div class="container">
-
-        <div class="section-header">
-          <span class="section-eyebrow">Book Time With Me</span>
-          <h2 class="section-heading">Schedule a Meeting</h2>
-          <p class="section-subhead">No back-and-forth emails. Grab a time directly on my calendar — career strategy, collaboration, mentorship, or just a solid conversation about tech.</p>
+        <!-- ── TAB SWITCHER ───────────────────────────────────── -->
+        <div class="connect-tabs" role="tablist" aria-label="Contact or Schedule">
+          <button
+            class="connect-tab active"
+            data-tab="contact"
+            role="tab"
+            id="tab-contact"
+            aria-selected="true"
+            aria-controls="panel-contact"
+          >
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            Contact
+          </button>
+          <button
+            class="connect-tab"
+            data-tab="schedule"
+            role="tab"
+            id="tab-schedule"
+            aria-selected="false"
+            aria-controls="panel-schedule"
+          >
+            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+            Schedule
+          </button>
         </div>
 
-        <div class="schedule-layout">
-
-          <!-- ── LEFT: Meeting options + trust ─────────────── -->
-          <div class="schedule-options-col">
-
-            <!-- Quick Chat 15 min -->
-            <div class="meeting-option glass-card reveal" data-meeting-type="quick">
-              <div class="meeting-opt-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <!-- ── CONTACT PANEL ──────────────────────────────────── -->
+        <div class="connect-panel" id="panel-contact" role="tabpanel" aria-labelledby="tab-contact">
+          <div class="contact-cards" role="list" aria-label="Contact options">
+            <article class="contact-card glass-card reveal" role="listitem" aria-label="LinkedIn contact option">
+              <div class="contact-icon" aria-hidden="true"><i class="fa-brands fa-linkedin"></i></div>
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Damarcus Lett on LinkedIn">Connect on LinkedIn</a>
+            </article>
+            <article class="contact-card glass-card reveal" role="listitem" aria-label="Location information">
+              <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+              <h3>Location</h3>
+              <p>Greater Seattle, WA Area</p>
+            </article>
+            <article class="contact-card glass-card reveal" role="listitem" aria-label="Open to opportunities">
+              <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
+              <h3>Open To</h3>
+              <p>Speaking &bull; Mentorship &bull; Collaboration</p>
+            </article>
+          </div>
+          <form id="contact-form" class="contact-form glass-card" novalidate aria-label="Contact form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="name" placeholder="Your full name" autocomplete="name" required aria-required="true" />
               </div>
-              <div class="meeting-opt-body">
-                <div class="meeting-opt-header">
-                  <h3 class="meeting-opt-title">Quick Chat</h3>
-                  <span class="timeline-badge">15 min</span>
+              <div class="form-group">
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <select id="contact-subject" name="subject" required aria-required="true">
+                <option value="" disabled selected>Select a topic</option>
+                <option value="general">General Inquiry</option>
+                <option value="speaking">Speaking Request</option>
+                <option value="mentorship">Mentorship</option>
+                <option value="collaboration">Collaboration</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" maxlength="2000" placeholder="Tell me about your project or how I can help..." required aria-required="true"></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-magnetic" aria-label="Send message to Damarcus Lett">Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+          </form>
+        </div><!-- /panel-contact -->
+
+        <!-- ── SCHEDULE PANEL ─────────────────────────────────── -->
+        <div class="connect-panel" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule" hidden>
+
+          <div class="schedule-layout">
+
+            <!-- LEFT: Meeting options + trust -->
+            <div class="schedule-options-col">
+
+              <!-- Quick Chat 15 min -->
+              <div class="meeting-option glass-card reveal" data-meeting-type="quick">
+                <div class="meeting-opt-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
-                <p class="meeting-opt-desc">Fast intro — networking, a quick question, or exploring if we should work together.</p>
-              </div>
-              <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer"
-                 class="meeting-opt-cta" aria-label="Book a 15 minute Quick Chat with Damarcus Lett" data-track="booking-quick-chat">
-                Book <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              </a>
-            </div>
-
-            <!-- Discovery Call 30 min — featured -->
-            <div class="meeting-option glass-card reveal meeting-option-featured" data-meeting-type="discovery">
-              <div class="meeting-opt-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-              </div>
-              <div class="meeting-opt-body">
-                <div class="meeting-opt-header">
-                  <h3 class="meeting-opt-title">Discovery Call</h3>
-                  <span class="timeline-badge badge-professional">30 min · Most Popular</span>
+                <div class="meeting-opt-body">
+                  <div class="meeting-opt-header">
+                    <h3 class="meeting-opt-title">Quick Chat</h3>
+                    <span class="timeline-badge">15 min</span>
+                  </div>
+                  <p class="meeting-opt-desc">Fast intro — networking, a quick question, or exploring if we should work together.</p>
                 </div>
-                <p class="meeting-opt-desc">Ideal first meeting — goals, experience, collaboration possibilities, and actionable takeaways.</p>
+                <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer"
+                   class="meeting-opt-cta" aria-label="Book a 15 minute Quick Chat with Damarcus Lett" data-track="booking-quick-chat">
+                  Book <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
               </div>
-              <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer"
-                 class="meeting-opt-cta meeting-opt-cta-featured" aria-label="Book a 30 minute Discovery Call with Damarcus Lett" data-track="booking-discovery-call">
-                Book <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              </a>
-            </div>
 
-            <!-- Deep Dive 60 min -->
-            <div class="meeting-option glass-card reveal" data-meeting-type="deepdive">
-              <div class="meeting-opt-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div class="meeting-opt-body">
-                <div class="meeting-opt-header">
-                  <h3 class="meeting-opt-title">Deep Dive</h3>
-                  <span class="timeline-badge">60 min</span>
+              <!-- Discovery Call 30 min — featured -->
+              <div class="meeting-option glass-card reveal meeting-option-featured" data-meeting-type="discovery">
+                <div class="meeting-opt-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
                 </div>
-                <p class="meeting-opt-desc">Speaking engagements, mentorship, technical strategy, or content collaboration that needs real time.</p>
-              </div>
-              <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer"
-                 class="meeting-opt-cta" aria-label="Book a 60 minute Deep Dive with Damarcus Lett" data-track="booking-deep-dive">
-                Book <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              </a>
-            </div>
-
-            <!-- Trust signals — 2×2 glass chips -->
-            <div class="sched-trust-grid reveal" aria-label="Meeting guarantees">
-              <div class="sched-trust-item">
-                <i class="fa-brands fa-google" aria-hidden="true"></i>
-                <span>Google Meet auto-sent</span>
-              </div>
-              <div class="sched-trust-item">
-                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-                <span>24-hr advance notice</span>
-              </div>
-              <div class="sched-trust-item">
-                <i class="fa-solid fa-clock" aria-hidden="true"></i>
-                <span>Your timezone auto-detected</span>
-              </div>
-              <div class="sched-trust-item">
-                <i class="fa-solid fa-envelope-circle-check" aria-hidden="true"></i>
-                <span>Instant confirmation</span>
-              </div>
-            </div>
-
-          </div><!-- /schedule-options-col -->
-
-          <!-- ── RIGHT: Live calendar embed ────────────────── -->
-          <div class="schedule-embed-col">
-            <div class="calendar-embed-wrapper">
-              <div class="calendar-embed-header">
-                <div class="calendar-embed-title-row">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue-light)" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                  <span>Live Availability</span>
+                <div class="meeting-opt-body">
+                  <div class="meeting-opt-header">
+                    <h3 class="meeting-opt-title">Discovery Call</h3>
+                    <span class="timeline-badge badge-professional">30 min · Most Popular</span>
+                  </div>
+                  <p class="meeting-opt-desc">Ideal first meeting — goals, experience, collaboration possibilities, and actionable takeaways.</p>
                 </div>
-                <span class="calendar-timezone-note" aria-live="polite">Times shown in your local timezone</span>
+                <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer"
+                   class="meeting-opt-cta meeting-opt-cta-featured" aria-label="Book a 30 minute Discovery Call with Damarcus Lett" data-track="booking-discovery-call">
+                  Book <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
               </div>
-              <!-- Google Calendar Appointment Scheduling begin -->
-              <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VraxujgS7hi-pcFuv-pn0xzCJgClwxWC7iG1MaQ3W1O01YkuNOQ4GwVqB2ZYu6k2vtM061exT?gv=true" style="border: 0" width="100%" height="620" frameborder="0" title="Schedule a meeting with Damarcus Lett" aria-label="Google Calendar booking interface for Damarcus Lett"></iframe>
-              <!-- end Google Calendar Appointment Scheduling -->
-            </div>
-          </div><!-- /schedule-embed-col -->
 
-        </div><!-- /schedule-layout -->
+              <!-- Deep Dive 60 min -->
+              <div class="meeting-option glass-card reveal" data-meeting-type="deepdive">
+                <div class="meeting-opt-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="meeting-opt-body">
+                  <div class="meeting-opt-header">
+                    <h3 class="meeting-opt-title">Deep Dive</h3>
+                    <span class="timeline-badge">60 min</span>
+                  </div>
+                  <p class="meeting-opt-desc">Speaking engagements, mentorship, technical strategy, or content collaboration that needs real time.</p>
+                </div>
+                <a href="https://calendar.app.google/Hnto6SV9et1FcAd99" target="_blank" rel="noopener noreferrer"
+                   class="meeting-opt-cta" aria-label="Book a 60 minute Deep Dive with Damarcus Lett" data-track="booking-deep-dive">
+                  Book <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+
+              <!-- Trust signals — 2×2 glass chips -->
+              <div class="sched-trust-grid reveal" aria-label="Meeting guarantees">
+                <div class="sched-trust-item">
+                  <i class="fa-brands fa-google" aria-hidden="true"></i>
+                  <span>Google Meet auto-sent</span>
+                </div>
+                <div class="sched-trust-item">
+                  <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                  <span>24-hr advance notice</span>
+                </div>
+                <div class="sched-trust-item">
+                  <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                  <span>Your timezone auto-detected</span>
+                </div>
+                <div class="sched-trust-item">
+                  <i class="fa-solid fa-envelope-circle-check" aria-hidden="true"></i>
+                  <span>Instant confirmation</span>
+                </div>
+              </div>
+
+            </div><!-- /schedule-options-col -->
+
+            <!-- RIGHT: Live calendar embed -->
+            <div class="schedule-embed-col">
+              <div class="calendar-embed-wrapper">
+                <div class="calendar-embed-header">
+                  <div class="calendar-embed-title-row">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue-light)" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <span>Live Availability</span>
+                  </div>
+                  <span class="calendar-timezone-note" aria-live="polite">Times shown in your local timezone</span>
+                </div>
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VraxujgS7hi-pcFuv-pn0xzCJgClwxWC7iG1MaQ3W1O01YkuNOQ4GwVqB2ZYu6k2vtM061exT?gv=true" style="border: 0" width="100%" height="620" frameborder="0" title="Schedule a meeting with Damarcus Lett" aria-label="Google Calendar booking interface for Damarcus Lett"></iframe>
+                <!-- end Google Calendar Appointment Scheduling -->
+              </div>
+            </div><!-- /schedule-embed-col -->
+
+          </div><!-- /schedule-layout -->
+
+        </div><!-- /panel-schedule -->
 
       </div>
-    </section><!-- /schedule -->
+    </section><!-- /contact -->
 
 
   </main>
@@ -942,6 +963,105 @@
       </a>
     </div>
   </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       ASK DAMARCUS — AI CHAT WIDGET
+       ═══════════════════════════════════════════ -->
+
+  <!-- Chat Bubble Trigger -->
+  <button
+    id="chat-bubble"
+    class="chat-bubble"
+    aria-label="Open Ask Damarcus AI chat assistant"
+    aria-expanded="false"
+    aria-controls="chat-widget"
+    data-track="chat-widget-opened"
+  >
+    <span class="chat-bubble-icon" aria-hidden="true">
+      <svg class="icon-chat-closed" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        <path d="M9.5 9h.01M12 9h.01M14.5 9h.01" stroke-width="2.5"/>
+      </svg>
+      <svg class="icon-chat-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </span>
+    <span class="chat-bubble-label">Ask Damarcus</span>
+    <span class="chat-pulse" aria-hidden="true"></span>
+  </button>
+
+  <!-- Chat Widget Panel -->
+  <div
+    id="chat-widget"
+    class="chat-widget"
+    role="dialog"
+    aria-label="Ask Damarcus AI Chat"
+    aria-modal="false"
+    hidden
+  >
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="chat-header-identity">
+        <div class="chat-avatar" aria-hidden="true">
+          <span>DL</span>
+          <span class="chat-avatar-status" aria-hidden="true"></span>
+        </div>
+        <div class="chat-header-text">
+          <span class="chat-name">Ask Damarcus</span>
+          <span class="chat-status">
+            <span class="status-dot" aria-hidden="true"></span>
+            AI-Powered &middot; Always Available
+          </span>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <button id="chat-clear" class="chat-action-btn" aria-label="Clear conversation history" title="Clear chat">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+        </button>
+        <button id="chat-close" class="chat-action-btn" aria-label="Close chat window" title="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="chat-messages" class="chat-messages" role="log" aria-label="Conversation messages" aria-live="polite" aria-atomic="false"></div>
+
+    <!-- Suggestion Chips -->
+    <div id="chat-suggestions" class="chat-suggestions" aria-label="Suggested questions">
+      <button class="suggestion-chip" data-question="What does Damarcus do at Microsoft Xbox?">What does Damarcus do at Xbox?</button>
+      <button class="suggestion-chip" data-question="What companies has Damarcus worked for?">Career history?</button>
+      <button class="suggestion-chip" data-question="How can I book a meeting with Damarcus?">Book a meeting</button>
+      <button class="suggestion-chip" data-question="What are Damarcus's technical skills?">Technical skills?</button>
+      <button class="suggestion-chip" data-question="Is Damarcus available for speaking engagements?">Speaking requests</button>
+      <button class="suggestion-chip" data-question="Tell me about Damarcus's background in program management">PM background?</button>
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-area">
+      <div class="chat-input-wrapper">
+        <textarea
+          id="chat-input"
+          class="chat-input"
+          placeholder="Ask about Damarcus's career, skills, or how to connect..."
+          aria-label="Type your question about Damarcus"
+          rows="1"
+          maxlength="500"
+          autocomplete="off"
+          spellcheck="true"
+        ></textarea>
+        <button id="chat-send" class="chat-send-btn" aria-label="Send message" disabled>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <div class="chat-input-meta">
+        <span class="chat-char-count" aria-live="polite" aria-atomic="true">0/500</span>
+        <span class="chat-powered-by" aria-label="Powered by Claude AI">&#9889; Powered by Claude AI</span>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

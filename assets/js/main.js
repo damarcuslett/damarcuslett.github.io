@@ -41,6 +41,8 @@
     initScheduleSection();
     initCompanyLogoLinks();
     initOrganizationsSection();
+    initConnectTabs();
+    initAskDamarcusChat();
   }
 
   /* ============================================
@@ -1123,6 +1125,276 @@
         });
       }, { passive: true });
     });
+  }
+
+  /* ============================================
+     18. Connect Tabs (Contact / Schedule)
+     ============================================ */
+  function initConnectTabs() {
+    var tabs = document.querySelectorAll('.connect-tab');
+    var panels = document.querySelectorAll('.connect-panel');
+    if (!tabs.length || !panels.length) return;
+
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = tab.dataset.tab;
+
+        // Update tab states
+        tabs.forEach(function(t) {
+          t.classList.toggle('active', t === tab);
+          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
+
+        // Show/hide panels
+        panels.forEach(function(panel) {
+          var isTarget = panel.id === 'panel-' + target;
+          if (isTarget) {
+            panel.removeAttribute('hidden');
+          } else {
+            panel.setAttribute('hidden', '');
+          }
+        });
+
+        if (typeof trackEvent === 'function') {
+          trackEvent('Connect Tab Switched', { tab: target });
+        }
+      });
+    });
+
+    // Support direct-link navigation: #schedule in URL opens schedule tab
+    function activateTabFromHash() {
+      var hash = window.location.hash;
+      if (hash === '#schedule') {
+        var schedTab = document.querySelector('[data-tab="schedule"]');
+        if (schedTab) schedTab.click();
+      }
+    }
+    activateTabFromHash();
+    window.addEventListener('hashchange', activateTabFromHash);
+  }
+
+  /* ============================================
+     19. Ask Damarcus — AI Chat Widget
+     ============================================ */
+  // ⚠ SECURITY: API key must never be in client-side code.
+  // All Claude API calls route through /.netlify/functions/chat serverless function.
+  // See README.md for deployment instructions.
+  function initAskDamarcusChat() {
+    var state = {
+      isOpen:    false,
+      isLoading: false,
+      messages:  [],
+      sessionId: (typeof crypto !== 'undefined' && crypto.randomUUID)
+                   ? crypto.randomUUID()
+                   : Date.now().toString()
+    };
+
+    var bubble     = document.getElementById('chat-bubble');
+    var widget     = document.getElementById('chat-widget');
+    var msgArea    = document.getElementById('chat-messages');
+    var input      = document.getElementById('chat-input');
+    var sendBtn    = document.getElementById('chat-send');
+    var closeBtn   = document.getElementById('chat-close');
+    var clearBtn   = document.getElementById('chat-clear');
+    var charCount  = document.querySelector('.chat-char-count');
+    var suggestions = document.getElementById('chat-suggestions');
+
+    if (!bubble || !widget) return;
+
+    // ── Welcome message ──────────────────────
+    function showWelcomeMessage() {
+      renderMessage({
+        role: 'assistant',
+        content: "👋 Hey! I'm an AI assistant that knows everything about Damarcus's career, experience, and how to connect with him. What would you like to know?",
+        time: getTime()
+      });
+    }
+
+    // ── Open / Close ─────────────────────────
+    function openChat() {
+      state.isOpen = true;
+      widget.hidden = false;
+      bubble.setAttribute('aria-expanded', 'true');
+      bubble.querySelector('.icon-chat-closed').style.display = 'none';
+      bubble.querySelector('.icon-chat-open').style.display = 'block';
+      if (state.messages.length === 0) showWelcomeMessage();
+      setTimeout(function() { if (input) input.focus(); }, 350);
+      if (typeof trackEvent === 'function') trackEvent('Chat Widget Opened');
+    }
+
+    function closeChat() {
+      state.isOpen = false;
+      widget.hidden = true;
+      bubble.setAttribute('aria-expanded', 'false');
+      bubble.querySelector('.icon-chat-closed').style.display = 'block';
+      bubble.querySelector('.icon-chat-open').style.display = 'none';
+      bubble.focus();
+    }
+
+    bubble.addEventListener('click', function() {
+      state.isOpen ? closeChat() : openChat();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeChat);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && state.isOpen) closeChat();
+    });
+
+    // ── Clear ────────────────────────────────
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function() {
+        state.messages = [];
+        msgArea.innerHTML = '';
+        if (suggestions) suggestions.classList.remove('hidden');
+        showWelcomeMessage();
+      });
+    }
+
+    // ── Render message ───────────────────────
+    function renderMessage(msg) {
+      state.messages.push(msg);
+      var div = document.createElement('div');
+      div.className = 'chat-message ' + msg.role;
+      div.setAttribute('aria-label',
+        (msg.role === 'user' ? 'You said: ' : 'Damarcus AI replied: ') + msg.content
+      );
+
+      var bub = document.createElement('div');
+      bub.className = 'message-bubble';
+      bub.textContent = msg.content;
+
+      var ts = document.createElement('span');
+      ts.className = 'message-time';
+      ts.textContent = msg.time;
+      ts.setAttribute('aria-hidden', 'true');
+
+      div.appendChild(bub);
+      div.appendChild(ts);
+      msgArea.appendChild(div);
+      msgArea.scrollTop = msgArea.scrollHeight;
+
+      if (msg.role === 'user' && suggestions) {
+        suggestions.classList.add('hidden');
+      }
+    }
+
+    // ── Typing indicator ─────────────────────
+    function showTyping() {
+      var div = document.createElement('div');
+      div.className = 'chat-message assistant';
+      div.id = 'typing-indicator';
+      div.setAttribute('aria-label', 'Damarcus AI is typing');
+      div.innerHTML = '<div class="typing-indicator" aria-hidden="true"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+      msgArea.appendChild(div);
+      msgArea.scrollTop = msgArea.scrollHeight;
+    }
+    function hideTyping() {
+      var ind = document.getElementById('typing-indicator');
+      if (ind) ind.remove();
+    }
+
+    // ── Send message ─────────────────────────
+    function sendMessage(text) {
+      text = text.trim();
+      if (!text || state.isLoading) return;
+
+      renderMessage({ role: 'user', content: text, time: getTime() });
+      input.value = '';
+      input.style.height = 'auto';
+      if (sendBtn) sendBtn.disabled = true;
+      updateCharCount(0);
+      state.isLoading = true;
+      showTyping();
+
+      var apiMessages = state.messages.map(function(m) {
+        return { role: m.role, content: m.content };
+      });
+
+      fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: apiMessages, sessionId: state.sessionId })
+      })
+      .then(function(res) {
+        if (res.status === 429) {
+          return res.json().then(function(data) {
+            hideTyping();
+            renderMessage({
+              role: 'assistant',
+              content: data.message || "You've reached the question limit. Book a call with Damarcus to keep the conversation going!",
+              time: getTime()
+            });
+            state.isLoading = false;
+          });
+        }
+        if (!res.ok) throw new Error('API error ' + res.status);
+        return res.json().then(function(data) {
+          hideTyping();
+          renderMessage({ role: 'assistant', content: data.reply, time: getTime() });
+          state.isLoading = false;
+          if (typeof trackEvent === 'function') {
+            trackEvent('Chat Message Sent', { question_length: text.length });
+          }
+        });
+      })
+      .catch(function(err) {
+        hideTyping();
+        console.error('Chat error:', err);
+        var errDiv = document.createElement('div');
+        errDiv.className = 'chat-message assistant';
+        errDiv.innerHTML = '<div class="chat-error-bubble">Something went wrong. Please try again or <a href="https://www.linkedin.com/in/damarcuslett/" target="_blank" rel="noopener noreferrer" style="color:#60A5FA;">connect on LinkedIn</a>.</div>';
+        msgArea.appendChild(errDiv);
+        msgArea.scrollTop = msgArea.scrollHeight;
+        state.isLoading = false;
+      });
+    }
+
+    // ── Input handlers ───────────────────────
+    if (input) {
+      input.addEventListener('input', function() {
+        var len = input.value.length;
+        if (sendBtn) sendBtn.disabled = len === 0 || state.isLoading;
+        updateCharCount(len);
+        input.style.height = 'auto';
+        input.style.height = Math.min(input.scrollHeight, 100) + 'px';
+      });
+
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          if (sendBtn && !sendBtn.disabled) sendMessage(input.value);
+        }
+      });
+    }
+
+    if (sendBtn) {
+      sendBtn.addEventListener('click', function() {
+        if (input) sendMessage(input.value);
+      });
+    }
+
+    // ── Suggestion chips ─────────────────────
+    document.querySelectorAll('.suggestion-chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var q = chip.dataset.question;
+        if (q) {
+          if (!state.isOpen) openChat();
+          sendMessage(q);
+        }
+      });
+    });
+
+    // ── Helpers ──────────────────────────────
+    function getTime() {
+      return new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    }
+    function updateCharCount(len) {
+      if (!charCount) return;
+      charCount.textContent = len + '/500';
+      charCount.className = 'chat-char-count';
+      if (len > 400) charCount.classList.add('near-limit');
+      if (len >= 500) charCount.classList.add('at-limit');
+    }
   }
 
 })();
